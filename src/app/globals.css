@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css");
+@import url("https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css");
 @import "tailwindcss";
 @import "../styles/theme.css";
 @import "../styles/variables.css";
@@ -7,5 +7,5 @@
 
 html,
 body {
-  font-family: "Pretendard" !important;
+  font-family: "SUIT" !important;
 }
