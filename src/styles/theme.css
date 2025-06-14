@@ -2,6 +2,7 @@
 @theme {
   /* Colors */
   --color-main: #f5c02f;
+  --color-main-dark: #111;
   --color-font: #111;
   --color-correct: #4dd943;
   --color-incorrect: #ff0303;

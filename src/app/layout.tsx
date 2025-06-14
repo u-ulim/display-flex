@@ -8,7 +8,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" data-theme="light">
+    <html lang="ko" data-theme="light" className="dark:bg-gray-900">
       <body>
         <ThemeProvider>
           <ThemeToggle />

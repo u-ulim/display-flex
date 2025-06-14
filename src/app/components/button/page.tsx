@@ -22,7 +22,8 @@ export default function page() {
       <div className="flex gap-4">
         <Button
           type="button"
-          className="bg-primary font-regular-14 w-32 h-10 "
+          className="bg-primary font-regular-14 w-32 h-10 
+          "
           onClick={() => console.log("clicked")}
           variant="play"
           size="sm"
