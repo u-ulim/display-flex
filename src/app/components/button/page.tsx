@@ -9,12 +9,13 @@ import {
   Sparkles,
   ChartNoAxesGantt,
   CircleUserRound,
+  SquarePen,
 } from "lucide-react";
 import { useState } from "react";
 
 export default function page() {
-  const [currentBanner, setCurrentBanner] = useState(0);
-  const [autoplay, setAutoplay] = useState(true);
+  // const [currentBanner, setCurrentBanner] = useState(0);
+  // const [autoplay, setAutoplay] = useState(true);
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
@@ -128,7 +129,7 @@ export default function page() {
           <Button
             type="button"
             key={num}
-            variant={num === 1 ? "default" : "outline"}
+            variant={num === 1 ? "nonOutline" : "outline"}
             size="pagination"
             className={num === 1 ? "bg-orange-600 hover:bg-orange-700" : ""}
           >
@@ -143,6 +144,28 @@ export default function page() {
           <ChevronRight className="w-4 h-4" />
         </Button>
       </div>
+      <div className="w-[200px]">
+        <Button type="button" variant="upgrade" size="sm" className="w-full">
+          업그레이드
+        </Button>
+      </div>
+      <Button
+        type="button"
+        variant="default"
+        size="sm"
+        className="font-regular-14"
+      >
+        교환
+      </Button>
+      <Button
+        type="button"
+        variant="default"
+        size="sm"
+        className="font-regular-14"
+      >
+        <SquarePen className="w-4 h-4 mr-2" />
+        편집
+      </Button>
     </div>
   );
 }

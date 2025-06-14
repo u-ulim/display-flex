@@ -1,9 +1,10 @@
 @import url("https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css");
 @import "tailwindcss";
+
 @import "../styles/theme.css";
 @import "../styles/variables.css";
 @import "../styles/mixins.css";
-@import "../styles/slider.css";
+
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 html,

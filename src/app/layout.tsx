@@ -1,6 +1,6 @@
+import "./globals.css";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import ThemeToggle from "./components/themeToggle/ThemeToggle";
-import "./globals.css";
 
 export default function RootLayout({
   children,

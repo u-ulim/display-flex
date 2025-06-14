@@ -3,7 +3,14 @@ export interface IButtonProps {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
-  variant?: "play" | "arrow" | "outline" | "footer" | "default";
+  variant?:
+    | "play"
+    | "arrow"
+    | "outline"
+    | "footer"
+    | "default"
+    | "upgrade"
+    | "nonOutline";
   size?: "default" | "sm" | "md" | "lg" | "footer" | "pagination";
   disabled?: boolean;
 }
