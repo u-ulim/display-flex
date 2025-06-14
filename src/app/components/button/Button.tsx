@@ -1,5 +1,4 @@
 "use client";
-
 import { IButtonProps } from "./button.type";
 import { buttonVariants } from "./buttonVariants";
 
