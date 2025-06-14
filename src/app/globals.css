@@ -4,6 +4,7 @@
 @import "../styles/variables.css";
 @import "../styles/mixins.css";
 @import "../styles/slider.css";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 html,
 body {
