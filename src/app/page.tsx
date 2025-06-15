@@ -1,3 +1,9 @@
+import { BannerSlide } from "./components/slide/banner";
+
 export default function App() {
-  return <div>hi</div>;
+  return (
+    <div>
+      <BannerSlide />
+    </div>
+  );
 }

@@ -9,7 +9,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed cursor-pointer bottom-24 right-4 z-50 w-14 h-14 bg-orange-600 hover:bg-orange-700 dark:bg-purple-600 dark:hover:bg-purple-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+      className="fixed cursor-pointer bottom-24 md:bottom-30 right-4 md:right-10 z-50 w-14 h-14 bg-orange-600 hover:bg-orange-700 dark:bg-purple-600 dark:hover:bg-purple-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
       aria-label={theme === "light" ? "다크 모드로 전환" : "라이트 모드로 전환"}
     >
       {theme === "light" ? (
