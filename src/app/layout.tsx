@@ -1,6 +1,8 @@
 import "./globals.css";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import ThemeToggle from "./components/themeToggle/ThemeToggle";
+import { Header } from "./components/header";
+import { Footer } from "./components/footer";
 
 export default function RootLayout({
   children,
@@ -12,7 +14,9 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <ThemeToggle />
+          <Header />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
