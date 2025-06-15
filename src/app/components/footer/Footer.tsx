@@ -17,27 +17,27 @@ export const Footer = () => {
     {
       key: "home",
       label: "홈",
-      icon: <Home className="w-4 h-4 mb-1" />,
+      icon: <Home className="w-4 h-4 md:w-6 md:h-6 mb-2 md:mb-3" />,
     },
     {
       key: "explore",
       label: "탐색",
-      icon: <Telescope className="w-4 h-4 mb-1" />,
+      icon: <Telescope className="w-4 h-4 md:w-6 md:h-6 mb-2 md:mb-3" />,
     },
     {
       key: "benefit",
       label: "혜택",
-      icon: <Sparkles className="w-4 h-4 mb-1" />,
+      icon: <Sparkles className="w-4 h-4 md:w-6 md:h-6 mb-2 md:mb-3" />,
     },
     {
       key: "review",
       label: "리뷰",
-      icon: <ChartNoAxesGantt className="w-4 h-4 mb-1" />,
+      icon: <ChartNoAxesGantt className="w-4 h-4 md:w-6 md:h-6 mb-2 md:mb-3" />,
     },
     {
       key: "mypage",
       label: "내 페이지",
-      icon: <CircleUserRound className="w-4 h-4 mb-1" />,
+      icon: <CircleUserRound className="w-4 h-4 md:w-6 md:h-6 mb-2 md:mb-3" />,
     },
   ];
 
