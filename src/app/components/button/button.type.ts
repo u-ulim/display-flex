@@ -10,7 +10,8 @@ export interface IButtonProps {
     | "footer"
     | "default"
     | "upgrade"
-    | "nonOutline";
+    | "nonOutline"
+    | "select";
   size?: "default" | "sm" | "md" | "lg" | "footer" | "pagination";
   disabled?: boolean;
 }
