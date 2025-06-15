@@ -3,7 +3,20 @@ import { Card } from "./Card";
 import { CardContent } from "../cardContent/CardContent";
 import { useVisibleItems } from "@/hooks/useVisibleItems";
 import Image from "next/image";
-import { Star, TrendingUp, Calendar, Award, Globe } from "lucide-react";
+import {
+  Star,
+  TrendingUp,
+  Calendar,
+  Award,
+  Globe,
+  Clock,
+  Heart,
+  ChevronRight,
+  User,
+  Bell,
+  Shield,
+  HelpCircle,
+} from "lucide-react";
 import { Button } from "../button/Button";
 import { Badge } from "../badge";
 
@@ -15,6 +28,79 @@ const popularMovies = Array.from({ length: 12 }, (_, i) => ({
   rating: (8 + i * 0.1).toFixed(1), // ✅ 고정값 사용
   image: "/placeholder.svg",
 }));
+
+const trendingMovies = [
+  {
+    id: 1,
+    title: "트렌딩 영화 1",
+    year: "2024",
+    rating: "8.1",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 2,
+    title: "트렌딩 영화 2",
+    year: "2024",
+    rating: "8.2",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 3,
+    title: "트렌딩 영화 3",
+    year: "2024",
+    rating: "8.3",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 4,
+    title: "트렌딩 영화 4",
+    year: "2024",
+    rating: "8.4",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 5,
+    title: "트렌딩 영화 5",
+    year: "2024",
+    rating: "8.5",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 6,
+    title: "트렌딩 영화 6",
+    year: "2024",
+    rating: "8.6",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 7,
+    title: "트렌딩 영화 7",
+    year: "2024",
+    rating: "8.7",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 8,
+    title: "트렌딩 영화 8",
+    year: "2024",
+    rating: "8.8",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 9,
+    title: "트렌딩 영화 9",
+    year: "2024",
+    rating: "8.9",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 10,
+    title: "트렌딩 영화 10",
+    year: "2024",
+    rating: "9.0",
+    image: "/placeholder.svg",
+  },
+];
 
 const categories = [
   {
@@ -82,6 +168,101 @@ export const rewards = [
   { title: "프리미엄 1개월", points: "5,000P", discount: "9,900원 상당" },
   { title: "팝콘 세트", points: "3,000P", discount: "CGV 팝콘세트" },
   { title: "시사회 응모권", points: "2,000P", discount: "독점 시사회" },
+];
+
+const mypageCategories = [
+  {
+    icon: <Heart className="w-6 h-6 text-orange-600 dark:text-orange-400" />,
+    bg: "bg-orange-50 dark:bg-orange-900/30 group-hover:bg-orange-300 dark:group-hover:bg-orange-800",
+    title: "찜한 영화",
+    desc: "내가 찜한 영화 목록",
+    key: "movies",
+  },
+  {
+    icon: <Star className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />,
+    bg: "bg-yellow-100 dark:bg-yellow-900/30 group-hover:bg-yellow-200 dark:group-hover:bg-yellow-800",
+    title: "내 리뷰",
+    desc: "내가 작성한 리뷰",
+    key: "reviews",
+  },
+  {
+    icon: <Clock className="w-6 h-6 text-green-600 dark:text-green-400" />,
+    bg: "bg-green-100 dark:bg-green-900/30 group-hover:bg-green-200 dark:group-hover:bg-green-800",
+    title: "시청 기록",
+    desc: "내가 본 영화 기록",
+    key: "history",
+  },
+  {
+    icon: <Award className="w-6 h-6 text-purple-600 dark:text-purple-400" />,
+    bg: "bg-purple-100 dark:bg-purple-900/30 group-hover:bg-purple-200 dark:group-hover:bg-purple-800",
+    title: "포인트",
+    desc: "적립한 포인트",
+    key: "benefits",
+  },
+];
+
+const activities = [
+  {
+    image: "/placeholder.svg",
+    title: "오펜하이머",
+    time: "2시간 전",
+    desc: "리뷰를 작성했습니다",
+    icon: (
+      <div className="flex items-center mt-2">
+        <Star className="w-4 h-4 text-yellow-400 fill-current mr-1" />
+        <span className="text-sm text-gray-900 dark:text-white">9.5</span>
+      </div>
+    ),
+  },
+  {
+    image: "/placeholder.svg",
+    title: "듄: 파트 투",
+    time: "1일 전",
+    desc: "찜 목록에 추가했습니다",
+    icon: <Heart className="w-4 h-4 text-orange-600 fill-current mt-2" />,
+  },
+  {
+    image: "/placeholder.svg",
+    title: "존 윅 4",
+    time: "3일 전",
+    desc: "시청을 완료했습니다",
+    icon: <Clock className="w-4 h-4 text-green-600 mt-2" />,
+  },
+];
+
+const settingsMenu = [
+  {
+    icon: <User className="w-5 h-5 text-gray-600 dark:text-gray-400" />,
+    label: "계정 설정",
+    key: "account",
+  },
+  {
+    icon: <Bell className="w-5 h-5 text-gray-600 dark:text-gray-400" />,
+    label: "알림 설정",
+    key: "notification",
+  },
+  {
+    icon: <Shield className="w-5 h-5 text-gray-600 dark:text-gray-400" />,
+    label: "개인정보 보호",
+    key: "privacy",
+  },
+  {
+    icon: <HelpCircle className="w-5 h-5 text-gray-600 dark:text-gray-400" />,
+    label: "고객 지원",
+    key: "support",
+  },
+];
+
+const memberships = [
+  {
+    title: "프리미엄 멤버십",
+    expire: "2024.12.31까지",
+    status: "활성",
+    statusColor: "bg-orange-600",
+    nextPayment: "2024.02.15",
+    gradient:
+      "bg-gradient-to-r from-orange-50 to-blue-50 dark:from-orange-900/20 dark:to-blue-900/20 border-orange-200 dark:border-orange-700",
+  },
 ];
 
 export default function CardPage() {
@@ -208,7 +389,7 @@ export default function CardPage() {
             </Card>
           ))}
         </div>
-        <div className="space-y-6">
+        <div className="space-y-6 mb-10">
           {collections.map((collection, i) => (
             <Card
               key={i}
@@ -239,7 +420,7 @@ export default function CardPage() {
             </Card>
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           {rewards.map((item, i) => (
             <Card
               key={i}
@@ -271,6 +452,214 @@ export default function CardPage() {
               </div>
             </Card>
           ))}
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-10">
+          {trendingMovies.map((movie, i) => (
+            <Card
+              key={movie.id}
+              className="group cursor-pointer hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+              onClick={() => {}}
+            >
+              <CardContent className="p-0">
+                <div className="aspect-[3/4] bg-gray-200 dark:bg-gray-700 rounded-t-lg relative overflow-hidden">
+                  <Image
+                    src={movie.image}
+                    alt={movie.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform"
+                  />
+                  {/* 순위 뱃지 */}
+                  <Badge
+                    className="font-bold-12 absolute top-2 left-2"
+                    variant="cardRanking"
+                    size="sm"
+                  >
+                    #{i + 1}
+                  </Badge>
+                  {/* 평점 뱃지 */}
+                  <Badge
+                    className="font-bold-14 absolute top-2 right-2"
+                    variant="cardRating"
+                    size="md"
+                  >
+                    {movie.rating}
+                  </Badge>
+                </div>
+                <div className="p-3">
+                  <h4 className="font-semibold text-sm mb-1 truncate text-gray-900 dark:text-white">
+                    {movie.title}
+                  </h4>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    {movie.year}
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <div className="space-y-6 mb-10">
+          {[1, 2, 3].map((i) => (
+            <Card
+              key={i}
+              className="p-6 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            >
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full flex-shrink-0">
+                  <Image
+                    src="/placeholder.svg"
+                    alt="User avatar"
+                    width={48}
+                    height={48}
+                    className="object-cover rounded-full"
+                  />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center space-x-2">
+                      <h4 className="font-sb-16 text-gray-900 dark:text-white">
+                        사용자{i}
+                      </h4>
+                      <div className="flex items-center">
+                        <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                        <span className="ml-1 text-sm text-gray-900 dark:text-white">
+                          9.{i}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="font-regular-14 text-gray-500 dark:text-gray-400">
+                      2024.01.1{i}
+                    </span>
+                  </div>
+                  <p className="text-gray-700 font-regular-16 dark:text-gray-300 mb-3">
+                    정말 훌륭한 영화였습니다. 스토리텔링이 뛰어나고 연기력도
+                    최고였어요. 강력히 추천합니다!
+                  </p>
+                  <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
+                    <button className="font-regular-14 hover:text-orange-600 dark:hover:text-orange-400">
+                      도움이 됨 (12)
+                    </button>
+                    <button className="font-regular-14 hover:text-orange-600 dark:hover:text-orange-400">
+                      답글
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          {mypageCategories.map((item, i) => (
+            <Card
+              key={i}
+              className="p-4 text-center hover:shadow-lg transition-shadow cursor-pointer bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+              onClick={() => {}}
+            >
+              <CardContent variant="default">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 transition-colors">
+                  {item.icon}
+                </div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
+                  {item.title}
+                </h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  {item.desc}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <div className="space-y-4 mb-10">
+          {activities.map((activity, idx) => (
+            <Card
+              key={idx}
+              className="p-4 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-18 bg-gray-200 dark:bg-gray-700 rounded overflow-hidden flex-shrink-0">
+                  <Image
+                    src={activity.image}
+                    alt="Movie"
+                    width={48}
+                    height={72}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                      {activity.title}
+                    </h4>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      {activity.time}
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    {activity.desc}
+                  </p>
+                  {activity.icon}
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+        <div className="space-y-2 mb-10">
+          {settingsMenu.map((item) => (
+            <Card
+              key={item.key}
+              className="p-4 hover:shadow-lg transition-shadow cursor-pointer bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  {item.icon}
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {item.label}
+                  </span>
+                </div>
+                <ChevronRight className="w-5 h-5 text-gray-400" />
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        <div className="space-y-2 mb-10">
+          {memberships.map((m, i) => (
+            <Card key={i} className={`p-6 ${m.gradient}`}>
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h4 className="font-sb-18 text-gray-900 dark:text-white mb-2">
+                    {m.title}
+                  </h4>
+                  <p className="font-regular-14 text-gray-600 dark:text-gray-300">
+                    {m.expire}
+                  </p>
+                </div>
+                <Badge
+                  className="font-bold-12"
+                  size="default"
+                  variant="primary"
+                >
+                  {m.status}
+                </Badge>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="font-regular-14 text-gray-600 dark:text-gray-300">
+                  다음 결제일: {m.nextPayment}
+                </div>
+                <Button
+                  type="button"
+                  variant="default"
+                  size="sm"
+                  className="dark:border-gray-600 dark:text-gray-300"
+                >
+                  관리하기
+                </Button>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        <div className="flex justify-center mb-10">
+          <div>더보기</div>
         </div>
       </div>
     </div>
