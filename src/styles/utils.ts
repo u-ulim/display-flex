@@ -2,7 +2,7 @@ export function rem(px: number) {
   return `${px / 16}`;
 }
 
-// 기본 vh/vw 함수 - 기준 뷰포트 크기를 인자로 받음, useViewport 사용 
+// 기본 vh/vw 함수 - 기준 뷰포트 크기를 인자로 받음, useViewport 사용
 export function vh(px: number, viewportHeight: number) {
   return `${(px / viewportHeight) * 100}vh`;
 }

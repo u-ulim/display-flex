@@ -31,6 +31,9 @@
   .font-bold-14 {
     font: var(--font-bold-14);
   }
+  .font-bold-12 {
+    font: var(--font-bold-12);
+  }
 
   /* Semibold text classes */
   .font-sb-28 {
