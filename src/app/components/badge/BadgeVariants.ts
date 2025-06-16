@@ -9,6 +9,8 @@ export const badgeVariants = tv({
       primary: "bg-orange-600 text-white  rounded-full",
       cardRanking: "bg-orange-600 text-white rounded-sm",
       cardRating: "bg-gray-700 text-white rounded-sm",
+      cardNew: "bg-green-400/90 text-white rounded-full",
+      cardGenre: "bg-gray-700  text-white rounded-sm",
     },
     size: {
       default: "py-1 px-3",

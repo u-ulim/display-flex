@@ -11,10 +11,12 @@ export const buttonVariants = tv({
         "bg-black/30 hover:bg-black/50 rounded-full p-2 text-white transition-colors dark:bg-white/20 dark:hover:bg-white/40",
       nonOutline:
         "bg-color-white text-white hover:bg-gray-100 rounded-md hover:bg-gray-100/60 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700",
+      allView:
+        "text-orange-600 border border-transparent dark:text-orange-400 hover:border-gray-300 dark:hover:border-gray-600 rounded-md",
       outline:
         "border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-md hover:bg-gray-100/60 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white",
       footer:
-        "bg-white text-gray-500 hover:text-gray-900 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-white",
+        "bg-white text-gray-500 hover:text-gray-900 dark:bg-gray-900 dark:text-gray-400 dark:hover:text-white",
       upgrade:
         "bg-blue-300 text-white hover:bg-blue-400 hover:text-white rounded-md dark:bg-blue-700 dark:hover:bg-blue-800",
       select:

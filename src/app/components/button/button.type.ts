@@ -11,7 +11,8 @@ export interface IButtonProps {
     | "default"
     | "upgrade"
     | "nonOutline"
-    | "select";
+    | "select"
+    | "allView";
   size?: "default" | "sm" | "md" | "lg" | "footer" | "pagination";
   disabled?: boolean;
 }
