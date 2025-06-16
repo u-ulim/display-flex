@@ -1,15 +1,15 @@
 "use client";
-import { Badge } from "../../badge/Badge";
-import { Card } from "../../card/Card";
-import { CardContent } from "../../cardContent";
+import { Badge } from "../../../badge/Badge";
+import { Card } from "../../../card/Card";
+import { CardContent } from "../../../cardContent";
 import { popularVariants } from "./popularVariants";
 const { section } = popularVariants();
 import Image from "next/image";
 import { useVisibleItems } from "@/hooks/useVisibleItems";
-import { Button } from "../../button/Button";
+import { Button } from "../../../button/Button";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { fetchPopulars } from "@/api/fetchPopulars";
+import { fetchPopulars } from "@/api/landing/fetchPopulars";
 import { IPopularSlide } from "./popularSlide.type";
 
 export const PopularSlide = () => {

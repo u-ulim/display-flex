@@ -1,17 +1,17 @@
 "use client";
-import { Badge } from "../../badge/Badge";
-import { Card } from "../../card/Card";
-import { CardContent } from "../../cardContent";
+import { Badge } from "../../../badge/Badge";
+import { Card } from "../../../card/Card";
+import { CardContent } from "../../../cardContent";
 import { NewVariants } from "./newVariants";
 const { section } = NewVariants();
 
 import Image from "next/image";
 import { useVisibleItems } from "@/hooks/useVisibleItems";
-import { Button } from "../../button/Button";
+import { Button } from "../../../button/Button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { fetchNews } from "@/api/fetchNews";
-import { INewsSlide } from "./NewSlide.type";
+import { fetchNews } from "@/api/landing/fetchNews";
+import { INewsSlide } from "./newSlide.type";
 
 export const NewSlide = () => {
   const [newsrSlide, setNewsrSlide] = useState(0);
