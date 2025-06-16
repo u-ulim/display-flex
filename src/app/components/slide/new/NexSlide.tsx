@@ -2,14 +2,15 @@
 import { Badge } from "../../badge/Badge";
 import { Card } from "../../card/Card";
 import { CardContent } from "../../cardContent";
-import { popularVariants } from "./popularVariants";
-const { section } = popularVariants();
+import { NewVariants } from "./newVariants";
+const { section } = NewVariants();
+
 import Image from "next/image";
 import { useVisibleItems } from "@/hooks/useVisibleItems";
 import { Button } from "../../button/Button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { fetchNews } from "@/api/fetchNews copy";
+import { fetchNews } from "@/api/fetchNews";
 import { INewsSlide } from "./NewSlide.type";
 
 export const NewSlide = () => {
@@ -47,7 +48,9 @@ export const NewSlide = () => {
   return (
     <section className={section()}>
       <div className="flex items-center justify-between mb-8 pt-10">
-        <h3 className="text-2xl font-bold text-gray-900">최신 개봉 영화</h3>
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          최신 개봉 영화
+        </h3>
         <div className="flex items-center space-x-2">
           <div className="flex space-x-2">
             <Button
@@ -102,13 +105,13 @@ export const NewSlide = () => {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform"
                     />
-
                     <Badge
-                      className="font-bold-14 absolute top-2 right-2"
-                      variant="cardRating"
-                      size="md"
+                      className="font-sb-12 absolute top-2 left-2
+          "
+                      variant="cardNew"
+                      size="default"
                     >
-                      {movie.rating}
+                      NEW
                     </Badge>
                   </div>
                   <div className="p-3 flex-grow">

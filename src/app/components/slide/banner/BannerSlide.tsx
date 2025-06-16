@@ -94,7 +94,7 @@ export const BannerSlide = () => {
           <div className={overlay()}></div>
 
           <div className="relative px-4 h-full flex items-center max-w-[1080px] mx-auto">
-            <div className="text-white h-65 flex flex-col justify-between h-[270]">
+            <div className="text-white h-65 flex flex-col justify-between h-[270] z-20">
               <div>
                 <Badge
                   className="font-medium-12 mb-4 w-fit"
@@ -127,7 +127,7 @@ export const BannerSlide = () => {
                 </div>
                 <Button
                   type="button"
-                  className="bg-primary font-regular-14 w-32 h-10 
+                  className="bg-primary font-regular-14 w-32 h-10
           "
                   onClick={() => console.log("clicked")}
                   variant="play"
@@ -146,7 +146,7 @@ export const BannerSlide = () => {
         {heroBanners.map((_, index) => (
           <button
             key={index}
-            className={`cursor-pointer w-3 h-3 rounded-full transition-colors ${
+            className={`cursor-pointer w-3 h-3 rounded-full transition-colors z-20 ${
               currentBanner === index ? "bg-orange-600" : "bg-white/50"
             }`}
             onClick={() => {
@@ -160,7 +160,7 @@ export const BannerSlide = () => {
       {/* Banner Arrows */}
       <Button
         type="button"
-        className="absolute left-4 top-1/2 transform -translate-y-1/2"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20"
         onClick={() => {
           setCurrentBanner(
             (prev) => (prev - 1 + heroBanners.length) % heroBanners.length
@@ -174,7 +174,7 @@ export const BannerSlide = () => {
       </Button>
       <Button
         type="button"
-        className="absolute right-4 top-1/2 transform -translate-y-1/2"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20"
         onClick={() => {
           setCurrentBanner((prev) => (prev + 1) % heroBanners.length);
           setAutoplay(false);

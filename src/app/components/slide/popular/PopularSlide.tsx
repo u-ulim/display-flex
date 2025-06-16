@@ -7,7 +7,7 @@ const { section } = popularVariants();
 import Image from "next/image";
 import { useVisibleItems } from "@/hooks/useVisibleItems";
 import { Button } from "../../button/Button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { fetchPopulars } from "@/api/fetchPopulars";
 import { IPopularSlide } from "./popularSlide.type";
@@ -47,7 +47,9 @@ export const PopularSlide = () => {
   return (
     <section className={section()}>
       <div className="flex items-center justify-between mb-8 pt-10">
-        <h3 className="text-2xl font-bold text-gray-900">인기 영화</h3>
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          인기 영화
+        </h3>
         <div className="flex space-x-2">
           <Button
             type="button"
@@ -98,9 +100,9 @@ export const PopularSlide = () => {
                       variant="cardRating"
                       size="md"
                     >
+                      <Star className="w-3 h-3 mr-2 text-yellow-300  fill-yellow-300" />
                       {movie.rating}
                     </Badge>
-                    <div className="absolute w-full h-full bottom-0 left-0 right-0 bg-gray-900/30 z-10"></div>
                   </div>
                   <div className="p-3 flex-grow">
                     <h4 className="font-semibold text-sm mb-1 text-black dark:text-white truncate">

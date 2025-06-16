@@ -12,7 +12,7 @@ export const buttonVariants = tv({
       nonOutline:
         "bg-color-white text-white hover:bg-gray-100 rounded-md hover:bg-gray-100/60 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700",
       allView:
-        "text-orange-600 border border-transparent  hover:border-gray-300 rounded-md",
+        "text-orange-600 border border-transparent dark:text-orange-400 hover:border-gray-300 dark:hover:border-gray-600 rounded-md",
       outline:
         "border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-md hover:bg-gray-100/60 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white",
       footer:
