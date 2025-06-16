@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import { bannerVariants } from "./bannerVariants";
 const { section, overlay } = bannerVariants();
 import Image from "next/image";
-import { Badge } from "../../badge/Badge";
-import { Button } from "../../button/Button";
+import { Badge } from "../../../badge/Badge";
+import { Button } from "../../../button/Button";
 import { IHeroBanner } from "./bannerSlide.type";
 import { Star } from "lucide-react";
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
-import { fetchHeroBanners } from "@/api/fetchHeroBanners";
+import { fetchHeroBanners } from "@/api/landing/fetchHeroBanners";
 
 export const BannerSlide = () => {
   const [currentBanner, setCurrentBanner] = useState(0);

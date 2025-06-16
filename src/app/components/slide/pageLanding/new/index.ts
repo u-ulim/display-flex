@@ -1,3 +1,3 @@
 export * from "./NexSlide";
-export * from "./NewSlide.type";
+export * from "./newSlide.type";
 export * from "./newVariants";
