@@ -1,7 +1,7 @@
-import { BannerSlide } from "./components/slide/pageLanding/banner";
-import { PopularSlide } from "./components/slide/pageLanding/popular";
-import { NewSlide } from "./components/slide/pageLanding/new";
-import { GenreSlide } from "./components/slide/pageLanding/genre";
+import { BannerSlide } from "./components/section/pageLanding/banner";
+import { PopularSlide } from "./components/section/pageLanding/popular";
+import { NewSlide } from "./components/section/pageLanding/new";
+import { GenreSlide } from "./components/section/pageLanding/genre";
 import { Review } from "./components/card/review/Review";
 
 export default function App() {

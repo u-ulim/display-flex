@@ -25,6 +25,9 @@
   .font-bold-24 {
     font: var(--font-bold-24);
   }
+  .font-bold-20 {
+    font: var(--font-bold-20);
+  }
   .font-bold-18 {
     font: var(--font-bold-18);
   }
