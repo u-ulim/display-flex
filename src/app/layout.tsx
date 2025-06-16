@@ -11,7 +11,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" data-theme="light" className="dark:bg-gray-900">
-      <body>
+      <body className="pb-23">
         <ThemeProvider>
           <ThemeToggle />
           <Header />
