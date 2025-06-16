@@ -16,7 +16,7 @@ const { collections } = await fetchCollection();
 export const Collection = () => {
   return (
     <section className={section()}>
-      <h3 className="font-bold-20 mb-4">특별 컬렉션</h3>
+      <h3 className="font-bold-20 mb-4 dark:text-white">특별 컬렉션</h3>
       <div className="space-y-6 mb-10">
         {collections.map((collection, i) => (
           <Card

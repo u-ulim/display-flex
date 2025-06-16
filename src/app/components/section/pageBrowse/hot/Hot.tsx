@@ -18,7 +18,7 @@ const { trendingMovies } = await fetchHot();
 export const Hot = () => {
   return (
     <section className={section()}>
-      <h3 className="font-bold-20 mb-4">지금 뜨는 영화</h3>
+      <h3 className="font-bold-20 mb-4 dark:text-white">지금 뜨는 영화</h3>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-10">
         {trendingMovies.map((movie: IHot, i: number) => (
           <Card

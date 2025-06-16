@@ -22,7 +22,7 @@ const genres = [
 export const Genre = () => {
   return (
     <section className={section()}>
-      <h3 className="font-bold-20 mb-4">장르별 탐색</h3>
+      <h3 className="font-bold-20 mb-4 dark:text-white">장르별 탐색</h3>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 ">
         {genres.map((genre, i) => (
           <Card

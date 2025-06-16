@@ -23,7 +23,7 @@ const years = [
 export const Yearly = () => {
   return (
     <section className={section()}>
-      <h3 className="font-bold-20 mb-4">연도별 탐색</h3>
+      <h3 className="font-bold-20 mb-4 dark:text-white">연도별 탐색</h3>
       <div className="flex flex-wrap gap-3">
         {years.map((year) => (
           <Button

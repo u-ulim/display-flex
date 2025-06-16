@@ -39,7 +39,7 @@ const categories = [
 export const Fast = () => {
   return (
     <section className={section()}>
-      <h3 className="font-bold-20 mb-4">빠른 탐색</h3>
+      <h3 className="font-bold-20 mb-4 dark:text-white">빠른 탐색</h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 ">
         {categories.map((cat, i) => (
           <Card
