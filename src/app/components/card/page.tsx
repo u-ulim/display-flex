@@ -396,27 +396,34 @@ export default function CardPage() {
               className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
               onClick={() => {}}
             >
-              <div className="flex items-center p-2">
-                <div className="relative w-32 h-32 bg-gray-200 dark:bg-gray-700 flex-shrink-0 p-2">
-                  <Image
-                    src={collection.image || "/placeholder.svg"}
-                    alt={collection.title}
-                    fill
-                    className="object-cover w-full h-full"
-                  />
+              <CardContent variant="default">
+                <div className="flex items-center p-2">
+                  <div className="relative w-32 h-32 bg-gray-200 dark:bg-gray-700 flex-shrink-0 p-2">
+                    <Image
+                      src={collection.image || "/placeholder.svg"}
+                      alt={collection.title}
+                      fill
+                      className="object-cover w-full h-full rounded-md"
+                    />
+                  </div>
+                  <div className="flex-1 px-4 max-h-28">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
+                      {collection.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 line-clamp-2">
+                      {collection.description}
+                    </p>
+                    <Badge
+                      className="font-medium-12"
+                      variant="default"
+                      size="sm"
+                    >
+                      {collection.count}
+                    </Badge>
+                  </div>
                 </div>
-                <div className="flex-1 p-4 max-h-28">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    {collection.title}
-                  </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                    {collection.description}
-                  </p>
-                  <Badge className="font-medium-12" variant="default" size="sm">
-                    {collection.count}
-                  </Badge>
-                </div>
-              </div>
+                /
+              </CardContent>
             </Card>
           ))}
         </div>
