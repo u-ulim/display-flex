@@ -1,11 +1,28 @@
-@import url("https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css");
+@import url("https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css");
 @import "tailwindcss";
+
 @import "../styles/theme.css";
 @import "../styles/variables.css";
 @import "../styles/mixins.css";
-@import "../styles/slider.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Tailwind의 transition-colors 유틸리티를 모든 요소에 적용하고 싶다면: */
+* {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
 
 html,
 body {
-  font-family: "Pretendard" !important;
+  font-family: "SUIT" !important;
 }
