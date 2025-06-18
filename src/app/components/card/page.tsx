@@ -16,6 +16,8 @@ import {
   Bell,
   Shield,
   HelpCircle,
+  Crown,
+  Zap,
 } from "lucide-react";
 import { Button } from "../button/Button";
 import { Badge } from "../badge";
@@ -664,7 +666,124 @@ export default function CardPage() {
             </Card>
           ))}
         </div>
+        <div className="space-y-4">
+          {/* Basic Plan */}
+          <button className="w-full p-6 bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 hover:shadow-lg text-left group">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Star className="w-8 h-8 text-gray-600 dark:text-gray-400" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                    베이직 플랜
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    기본 기능으로 시작하기
+                  </p>
+                  <div className="flex items-center space-x-3 mt-2">
+                    <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-1 rounded-full">
+                      영화 정보
+                    </span>
+                    <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-1 rounded-full">
+                      리뷰 작성
+                    </span>
+                    <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-1 rounded-full">
+                      찜하기
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-3xl font-bold text-gray-900 dark:text-white">
+                  무료
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  현재 플랜
+                </div>
+              </div>
+            </div>
+          </button>
 
+          {/* Premium Plan */}
+          <button className="w-full p-6 bg-gradient-to-r from-sky-50 to-purple-50 dark:from-sky-900/20 dark:to-purple-900/20 rounded-2xl border-2 border-sky-300 dark:border-sky-600 hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 hover:shadow-xl text-left group relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-gradient-to-l from-sky-500 to-purple-600 text-white px-4 py-1 rounded-bl-xl text-sm font-bold">
+              🔥 인기
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-sky-400 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <Crown className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                    프리미엄 플랜
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    완벽한 영화 경험
+                  </p>
+                  <div className="flex items-center space-x-2 mt-2">
+                    <span className="text-xs bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-400 px-2 py-1 rounded-full">
+                      광고 없음
+                    </span>
+                    <span className="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 px-2 py-1 rounded-full">
+                      독점 콘텐츠
+                    </span>
+                    <span className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-2 py-1 rounded-full">
+                      우선 지원
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-3xl font-bold bg-gradient-to-r from-sky-600 to-purple-600 bg-clip-text text-transparent">
+                  ₩9,900
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  /월
+                </div>
+              </div>
+            </div>
+          </button>
+
+          {/* VIP Plan */}
+          <button className="w-full p-6 bg-white dark:bg-gray-800 rounded-2xl border-2 border-yellow-200 dark:border-yellow-700 hover:border-yellow-300 dark:hover:border-yellow-600 transition-all duration-300 hover:shadow-lg text-left group">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <Zap className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                    VIP 플랜
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    최고급 프리미엄 경험
+                  </p>
+                  <div className="flex items-center space-x-2 mt-2">
+                    <span className="text-xs bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 px-2 py-1 rounded-full">
+                      영화관 할인
+                    </span>
+                    <span className="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 px-2 py-1 rounded-full">
+                      시사회 초대
+                    </span>
+                    <span className="text-xs bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 px-2 py-1 rounded-full">
+                      AI 추천
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-3xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
+                  ₩19,900
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  /월
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
         <div className="flex justify-center mb-10">
           <div>더보기</div>
         </div>
