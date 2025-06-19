@@ -21,6 +21,7 @@ export const buttonVariants = tv({
         "bg-blue-300 text-white hover:bg-blue-400 hover:text-white rounded-md dark:bg-blue-700 dark:hover:bg-blue-800",
       select:
         "hover:bg-orange-50 border border-gray-300 hover:border-orange-300 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700 rounded-md",
+      more: "group px-5 py-3 bg-white dark:bg-gray-800 border-2 border-orange-200 dark:border-gray-700 dark:hover:border-orange-500 hover:shadow-md transition-all duration-200 rounded-lg",
     },
     size: {
       default: "h-10 px-4 py-2",

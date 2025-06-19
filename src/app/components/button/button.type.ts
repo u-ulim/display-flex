@@ -12,7 +12,8 @@ export interface IButtonProps {
     | "upgrade"
     | "nonOutline"
     | "select"
-    | "allView";
+    | "allView"
+    | "more";
   size?: "default" | "sm" | "md" | "lg" | "footer" | "pagination";
   disabled?: boolean;
 }
