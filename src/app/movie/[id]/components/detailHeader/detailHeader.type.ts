@@ -1,15 +1,6 @@
-export interface IDetailHeaderProps {
-  children: React.ReactNode;
-  className?: string;
-}
+import { MovieDetail } from "@/api/detail/fetchMovieDetail";
 
-export interface IDetailHeader {
-  id: number;
-  title: string;
-  description: string;
-  badge: string;
-  rating: string;
-  year: string;
-  genre: string;
-  image: string;
+export interface IDetailHeaderProps {
+  movie: MovieDetail;
+  className?: string;
 }

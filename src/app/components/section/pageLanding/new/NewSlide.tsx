@@ -12,6 +12,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { fetchNews } from "@/api/landing/fetchNews";
 import { INewsSlide } from "./newSlide.type";
+import Link from "next/link";
 
 export const NewSlide = () => {
   const [newsrSlide, setNewsrSlide] = useState(0);
@@ -96,32 +97,34 @@ export const NewSlide = () => {
               className="flex-shrink-0 px-2"
               style={{ width: `${100 / visibleItems}%` }}
             >
-              <Card key={movie.id}>
-                <CardContent variant="default">
-                  <div className="aspect-[3/4] bg-gray-200 rounded-t-lg relative overflow-hidden">
-                    <Image
-                      src={movie.image || "/placeholder.svg"}
-                      alt={movie.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform"
-                    />
-                    <Badge
-                      className="font-sb-12 absolute top-2 left-2
+              <Link href={`/movie/${movie.id}`}>
+                <Card key={movie.id}>
+                  <CardContent variant="default">
+                    <div className="aspect-[3/4] bg-gray-200 rounded-t-lg relative overflow-hidden">
+                      <Image
+                        src={movie.image || "/placeholder.svg"}
+                        alt={movie.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform"
+                      />
+                      <Badge
+                        className="font-sb-12 absolute top-2 left-2
           "
-                      variant="cardNew"
-                      size="default"
-                    >
-                      NEW
-                    </Badge>
-                  </div>
-                  <div className="p-3 flex-grow">
-                    <h4 className="font-semibold text-sm mb-1 text-black dark:text-white truncate">
-                      {movie.title}
-                    </h4>
-                    <p className="text-xs text-gray-500">{movie.year}</p>
-                  </div>
-                </CardContent>
-              </Card>
+                        variant="cardNew"
+                        size="default"
+                      >
+                        NEW
+                      </Badge>
+                    </div>
+                    <div className="p-3 flex-grow">
+                      <h4 className="font-semibold text-sm mb-1 text-black dark:text-white truncate">
+                        {movie.title}
+                      </h4>
+                      <p className="text-xs text-gray-500">{movie.year}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           ))}
         </div>

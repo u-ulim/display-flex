@@ -7,7 +7,7 @@ import { Button } from "@/app/components/button";
 import { Star, Calendar, Clock, Heart, Share2, Play } from "lucide-react";
 import { useState } from "react";
 
-export const DetailHeader = () => {
+export const DetailHeader = ({ movie, className }: IDetailHeaderProps) => {
   const { section } = detailHeaderVariants();
   const [watchlistModalOpen, setWatchlistModalOpen] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
@@ -19,8 +19,8 @@ export const DetailHeader = () => {
         <div className="lg:col-span-1">
           <div className="aspect-[3/4] bg-gray-200 rounded-lg overflow-hidden shadow-lg">
             <Image
-              src="/placeholder.svg"
-              alt="Movie Poster"
+              src={movie.image}
+              alt={`${movie.title} 포스터`}
               width={400}
               height={600}
               className="object-cover w-full h-full"
@@ -33,39 +33,40 @@ export const DetailHeader = () => {
           <div className="space-y-6">
             <div>
               <div className="flex items-center space-x-2 mb-2">
-                <Badge variant="primary" size="default" className="font-sb-12">
-                  액션
-                </Badge>
-                <Badge className="font-sb-12" variant="default" size="default">
-                  드라마
-                </Badge>
+                {movie.genre.map((genre, index) => (
+                  <Badge
+                    key={index}
+                    variant={index === 0 ? "primary" : "default"}
+                    size="default"
+                    className="font-sb-12"
+                  >
+                    {genre}
+                  </Badge>
+                ))}
               </div>
-              <h1 className="font-bold-32 text-gray-900 mb-4">오펜하이머</h1>
+              <h1 className="font-bold-32 text-gray-900 mb-4">{movie.title}</h1>
               <div className="flex items-center space-x-6 text-gray-600 mb-6">
                 <div className="flex items-center">
                   <Star className="w-5 h-5 text-yellow-400 fill-current mr-1" />
-                  <span className="font-sb-20 text-gray-900">8.9</span>
-                  <span>(1,234 리뷰)</span>
+                  <span className="font-sb-20 text-gray-900">
+                    {movie.rating}
+                  </span>
+                  <span>({movie.reviews.length} 리뷰)</span>
                 </div>
                 <div className="flex items-center">
                   <Calendar className="w-4 h-4 mr-1" />
-                  <span>2023</span>
+                  <span>{movie.year}</span>
                 </div>
                 <div className="flex items-center">
                   <Clock className="w-4 h-4 mr-1" />
-                  <span>180분</span>
+                  <span>{movie.duration}분</span>
                 </div>
               </div>
             </div>
 
             <div>
-              <p className="text-gray-700 leading-relaxed">
-                1942년, 맨해튼 프로젝트의 일환으로 로스 알라모스 연구소에서
-                원자폭탄 개발을 지휘하게 된 물리학자 로버트 오펜하이머. 그는
-                나치 독일보다 먼저 핵무기를 완성시키기 위해 동료 과학자들과 함께
-                인류 역사상 가장 강력한 무기를 만들어낸다. 하지만 원자폭탄이
-                실제로 사용되면서 그는 자신이 만든 무기의 파괴력에 충격을 받고,
-                핵무기 확산을 막기 위해 노력하지만 정치적 탄압을 받게 되는데...
+              <p className="text-gray-700 leading-relaxed line-clamp-2 md:line-clamp-none">
+                {movie.description}
               </p>
             </div>
 

@@ -10,19 +10,15 @@ import { Button } from "@/app/components/button";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { fetchDetailSimilar } from "@/api/detail/fetchDetailSimilar";
-import { IDetailSimilar } from "./detailSimilar.type";
+import { IDetailSimilarProps, ISimilarMovie } from "./detailSimilar.type";
+import Link from "next/link";
 
-export const DetailSimilar = () => {
+export const DetailSimilar = ({
+  similarMovies,
+  className,
+}: IDetailSimilarProps) => {
   const [popularSlide, setPopularSlide] = useState(0);
   const visibleItems = useVisibleItems();
-  const [popularMovies, setPopularMovies] = useState([]);
-
-  useEffect(() => {
-    fetchDetailSimilar().then((data) => {
-      setPopularMovies(data);
-    });
-  }, []);
-  // 인기 영화 데이터
 
   // 슬라이드 이동 함수
   const moveSlide = (
@@ -30,7 +26,7 @@ export const DetailSimilar = () => {
     type: "popular" | "new" | "genre"
   ) => {
     const maxSlides = {
-      popular: Math.max(0, popularMovies.length - visibleItems),
+      popular: Math.max(0, similarMovies.length - visibleItems),
     };
     if (type === "popular") {
       if (direction === "prev") {
@@ -65,7 +61,7 @@ export const DetailSimilar = () => {
             variant="outline"
             size="sm"
             onClick={() => moveSlide("next", "popular")}
-            disabled={popularSlide >= popularMovies.length - visibleItems}
+            disabled={popularSlide >= similarMovies.length - visibleItems}
           >
             <ChevronRight className="w-4 h-4" />
           </Button>
@@ -79,39 +75,41 @@ export const DetailSimilar = () => {
             transform: `translateX(-${popularSlide * (100 / visibleItems)}%)`,
           }}
         >
-          {popularMovies.map((movie: IDetailSimilar) => (
+          {similarMovies.map((movie) => (
             <div
               key={movie.id}
               className="flex-shrink-0 px-2"
               style={{ width: `${100 / visibleItems}%` }}
             >
-              <Card key={movie.id}>
-                <CardContent variant="default">
-                  <div className="aspect-[3/4] bg-gray-200 rounded-t-lg relative overflow-hidden">
-                    <Image
-                      src={movie.image || "/placeholder.svg"}
-                      alt={movie.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform"
-                    />
+              <Link href={`/movie/${movie.id}`}>
+                <Card key={movie.id}>
+                  <CardContent variant="default">
+                    <div className="aspect-[3/4] bg-gray-200 rounded-t-lg relative overflow-hidden">
+                      <Image
+                        src={movie.image || "/placeholder.svg"}
+                        alt={movie.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform"
+                      />
 
-                    <Badge
-                      className="font-bold-14 absolute top-2 right-2 z-20"
-                      variant="cardRating"
-                      size="md"
-                    >
-                      <Star className="w-3 h-3 mr-2 text-yellow-300  fill-yellow-300" />
-                      {movie.rating}
-                    </Badge>
-                  </div>
-                  <div className="p-3 flex-grow">
-                    <h4 className="font-semibold text-sm mb-1 text-black dark:text-white truncate">
-                      {movie.title}
-                    </h4>
-                    <p className="text-xs text-gray-500">{movie.year}</p>
-                  </div>
-                </CardContent>
-              </Card>
+                      <Badge
+                        className="font-bold-14 absolute top-2 right-2 z-20"
+                        variant="cardRating"
+                        size="md"
+                      >
+                        <Star className="w-3 h-3 mr-2 text-yellow-300  fill-yellow-300" />
+                        {movie.rating}
+                      </Badge>
+                    </div>
+                    <div className="p-3 flex-grow">
+                      <h4 className="font-semibold text-sm mb-1 text-black dark:text-white truncate">
+                        {movie.title}
+                      </h4>
+                      <p className="text-xs text-gray-500">{movie.year}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           ))}
         </div>

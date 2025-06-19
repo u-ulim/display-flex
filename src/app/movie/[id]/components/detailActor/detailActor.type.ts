@@ -1,15 +1,9 @@
-export interface IDetailHeaderProps {
-  children: React.ReactNode;
+export interface IDetailActorProps {
+  cast: {
+    id: number;
+    name: string;
+    character: string;
+    image: string;
+  }[];
   className?: string;
-}
-
-export interface IDetailHeader {
-  id: number;
-  title: string;
-  description: string;
-  badge: string;
-  rating: string;
-  year: string;
-  genre: string;
-  image: string;
 }
