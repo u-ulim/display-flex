@@ -22,42 +22,6 @@ export const BannerSlide = () => {
     });
   }, []);
 
-  console.log(heroBanners);
-
-  const heroBanners2 = [
-    {
-      id: 1,
-      title: "오펜하이머",
-      description:
-        "원자폭탄을 만든 남자의 이야기. 크리스토퍼 놀란 감독의 역작.",
-      badge: "추천 영화",
-      rating: "8.9",
-      year: "2023",
-      genre: "드라마",
-      image: "/placeholder.svg?height=600&width=1080",
-    },
-    {
-      id: 2,
-      title: "듄: 파트 2",
-      description: "사막 행성 아라키스에서 펼쳐지는 대서사시의 두 번째 이야기.",
-      badge: "최신 개봉",
-      rating: "9.1",
-      year: "2024",
-      genre: "SF",
-      image: "/placeholder.svg?height=600&width=1080",
-    },
-    {
-      id: 3,
-      title: "데드풀 & 울버린",
-      description: "두 히어로의 예상치 못한 만남. 마블의 새로운 도전.",
-      badge: "기대작",
-      rating: "8.7",
-      year: "2024",
-      genre: "액션",
-      image: "/placeholder.svg?height=600&width=1080",
-    },
-  ];
-
   // 메인 배너 자동 슬라이드
   useEffect(() => {
     if (!autoplay || heroBanners.length === 0) return;

@@ -1,15 +1,18 @@
 export interface IDetailSimilarProps {
-  children: React.ReactNode;
+  similarMovies: {
+    id: number;
+    title: string;
+    image: string;
+    rating: number;
+    year: number;
+  }[];
   className?: string;
 }
 
-export interface IDetailSimilar {
+export interface ISimilarMovie {
   id: number;
   title: string;
-  description: string;
-  badge: string;
-  rating: string;
-  year: string;
-  genre: string;
   image: string;
+  rating: number;
+  year: number;
 }

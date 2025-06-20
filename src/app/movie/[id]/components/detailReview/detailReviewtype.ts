@@ -1,15 +1,11 @@
-export interface IDetailHeaderProps {
-  children: React.ReactNode;
+export interface IDetailReviewProps {
+  reviews: {
+    id: number;
+    user: string;
+    rating: number;
+    date: string;
+    content: string;
+    helpfulCount: number;
+  }[];
   className?: string;
-}
-
-export interface IDetailHeader {
-  id: number;
-  title: string;
-  description: string;
-  badge: string;
-  rating: string;
-  year: string;
-  genre: string;
-  image: string;
 }
