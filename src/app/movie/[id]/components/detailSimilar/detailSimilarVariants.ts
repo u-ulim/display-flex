@@ -1,0 +1,8 @@
+import { tv } from "tailwind-variants";
+
+export const detailSimilarVariants = tv({
+  slots: {
+    section:
+      "bg-gray-50 dark:bg-gray-900 max-w-[1080px] mx-auto relative p-4 rounded-lg mb-10",
+  },
+});

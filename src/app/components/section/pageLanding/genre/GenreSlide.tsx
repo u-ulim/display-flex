@@ -34,6 +34,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { IGenreSlide } from "./genreSlide.type";
 import { fetchGenre } from "@/api/landing/fetchGenre";
+import Link from "next/link";
 
 const genres = [
   { label: "액션", icon: <Flame className="w-4 h-4 text-red-500" /> },
@@ -164,34 +165,36 @@ export const GenreSlide = () => {
               className="flex-shrink-0 px-2"
               style={{ width: `${100 / visibleItems}%` }}
             >
-              <Card key={movie.id}>
-                <CardContent variant="default">
-                  <div className="aspect-[3/4] bg-gray-200 rounded-t-lg relative overflow-hidden">
-                    <Image
-                      src={movie.image || "/placeholder.svg"}
-                      alt={movie.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform"
-                    />
-                    <Badge
-                      variant="cardGenre"
-                      size="md"
-                      className="absolute top-2 left-2 z-20"
-                    >
-                      {
-                        genres.find((genre) => genre.label === movie.genre)
-                          ?.icon
-                      }
-                    </Badge>
-                  </div>
-                  <div className="p-3 flex-grow">
-                    <h4 className="font-semibold text-sm mb-1 text-black dark:text-white truncate">
-                      {movie.title}
-                    </h4>
-                    <p className="text-xs text-gray-500">{movie.year}</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <Link href={`/movie/${movie.id}`}>
+                <Card key={movie.id}>
+                  <CardContent variant="default">
+                    <div className="aspect-[3/4] bg-gray-200 rounded-t-lg relative overflow-hidden">
+                      <Image
+                        src={movie.image || "/placeholder.svg"}
+                        alt={movie.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform"
+                      />
+                      <Badge
+                        variant="cardGenre"
+                        size="md"
+                        className="absolute top-2 left-2 z-20"
+                      >
+                        {
+                          genres.find((genre) => genre.label === movie.genre)
+                            ?.icon
+                        }
+                      </Badge>
+                    </div>
+                    <div className="p-3 flex-grow">
+                      <h4 className="font-semibold text-sm mb-1 text-black dark:text-white truncate">
+                        {movie.title}
+                      </h4>
+                      <p className="text-xs text-gray-500">{movie.year}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           ))}
         </div>

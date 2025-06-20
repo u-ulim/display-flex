@@ -1,57 +1,58 @@
 "use client";
-import { Badge } from "../../../badge/Badge";
-import { Card } from "../../../card/Card";
-import { CardContent } from "../../../cardContent";
-import { popularVariants } from "./popularVariants";
-const { section } = popularVariants();
+import { Badge } from "@/app/components/badge";
+import { Card } from "@/app/components/card";
+import { CardContent } from "@/app/components/cardContent";
+import { detailSimilarVariants } from "./detailSimilarVariants";
+const { section } = detailSimilarVariants();
 import Image from "next/image";
-import Link from "next/link";
 import { useVisibleItems } from "@/hooks/useVisibleItems";
-import { Button } from "../../../button/Button";
+import { Button } from "@/app/components/button";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { IPopularSlide } from "./popularSlide.type";
-import { fetchPopulars } from "@/api/landing/fetchPopulars";
+import { fetchDetailSimilar } from "@/api/detail/fetchDetailSimilar";
+import { IDetailSimilarProps, ISimilarMovie } from "./detailSimilar.type";
+import Link from "next/link";
 
-export const PopularSlide = () => {
-  const [popularMovies, setPopularMovies] = useState<IPopularSlide[]>([]);
+export const DetailSimilar = ({
+  similarMovies,
+  className,
+}: IDetailSimilarProps) => {
   const [popularSlide, setPopularSlide] = useState(0);
   const visibleItems = useVisibleItems();
-  const popularRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    fetchPopulars().then((data) => {
-      setPopularMovies(data);
-    });
-  }, []);
-
-  const moveSlide = (direction: "prev" | "next", type: "popular") => {
+  // 슬라이드 이동 함수
+  const moveSlide = (
+    direction: "prev" | "next",
+    type: "popular" | "new" | "genre"
+  ) => {
+    const maxSlides = {
+      popular: Math.max(0, similarMovies.length - visibleItems),
+    };
     if (type === "popular") {
-      if (direction === "next") {
-        setPopularSlide((prev) =>
-          prev >= popularMovies.length - visibleItems ? 0 : prev + 1
-        );
+      if (direction === "prev") {
+        setPopularSlide(Math.max(0, popularSlide - 1));
       } else {
-        setPopularSlide((prev) =>
-          prev <= 0
-            ? Math.max(0, popularMovies.length - visibleItems)
-            : prev - 1
-        );
+        setPopularSlide(Math.min(maxSlides.popular, popularSlide + 1));
       }
     }
   };
 
+  // 슬라이드 컨테이너 참조
+  const popularRef = useRef<HTMLDivElement>(null);
+
   return (
     <section className={section()}>
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="font-bold-20 dark:text-white">인기 영화</h3>
+      <div className="flex items-center justify-between mb-8 pt-10">
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          비슷한 영화 추천
+        </h3>
         <div className="flex space-x-2">
           <Button
             type="button"
             variant="outline"
             size="sm"
             onClick={() => moveSlide("prev", "popular")}
-            disabled={popularSlide <= 0}
+            disabled={popularSlide === 0}
           >
             <ChevronLeft className="w-4 h-4" />
           </Button>
@@ -60,13 +61,12 @@ export const PopularSlide = () => {
             variant="outline"
             size="sm"
             onClick={() => moveSlide("next", "popular")}
-            disabled={popularSlide >= popularMovies.length - visibleItems}
+            disabled={popularSlide >= similarMovies.length - visibleItems}
           >
             <ChevronRight className="w-4 h-4" />
           </Button>
         </div>
       </div>
-
       <div className="overflow-hidden">
         <div
           ref={popularRef}
@@ -75,7 +75,7 @@ export const PopularSlide = () => {
             transform: `translateX(-${popularSlide * (100 / visibleItems)}%)`,
           }}
         >
-          {popularMovies.map((movie: IPopularSlide) => (
+          {similarMovies.map((movie) => (
             <div
               key={movie.id}
               className="flex-shrink-0 px-2"
