@@ -1,13 +1,10 @@
 "use client";
 
-import { Award, Calendar, Globe, TrendingUp } from "lucide-react";
 import { hotVariants } from "./hotVariants";
 import { Card } from "@/app/components/card/Card";
 import { CardContent } from "@/app/components/cardContent/CardContent";
-import { Button } from "@/app/components/button/Button";
 import Image from "next/image";
 import { Badge } from "@/app/components/badge/Badge";
-import { fetchCollection } from "@/api/browse/fetchGenre";
 import { IHot } from "./hot.type";
 import { fetchHot } from "@/api/browse/fetchHot";
 import Link from "next/link";

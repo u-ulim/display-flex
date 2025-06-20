@@ -1,6 +1,5 @@
 "use client";
 
-import { Award, Calendar, Globe, TrendingUp } from "lucide-react";
 import { genreVariants } from "./genreVariants";
 import { Card } from "@/app/components/card/Card";
 import { CardContent } from "@/app/components/cardContent/CardContent";

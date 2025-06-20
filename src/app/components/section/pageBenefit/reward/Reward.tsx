@@ -1,10 +1,8 @@
 "use client";
 
-import { Award, Calendar, Globe, TrendingUp, Users } from "lucide-react";
+import { Users, Crown } from "lucide-react";
 import { rewardVariants } from "./rewardVariants";
 import { Card } from "@/app/components/card/Card";
-import { CardContent } from "@/app/components/cardContent/CardContent";
-import { Star, Crown, Zap } from "lucide-react";
 
 const { section } = rewardVariants();
 

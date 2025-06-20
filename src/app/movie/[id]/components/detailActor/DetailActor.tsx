@@ -1,15 +1,10 @@
-import { cn } from "tailwind-variants";
 import { IDetailActorProps } from "./detailActor.type";
 import { detailActorVariants } from "./detailActorVariants";
 import Image from "next/image";
-import { Badge } from "@/app/components/badge";
-import { Button } from "@/app/components/button";
-import { Star, Calendar, Clock, Heart, Share2, Play } from "lucide-react";
-import { useState } from "react";
 import { Card } from "@/app/components/card";
 import { CardContent } from "@/app/components/cardContent";
 
-export const DetailActor = ({ cast, className }: IDetailActorProps) => {
+export const DetailActor = ({ cast }: IDetailActorProps) => {
   const { section } = detailActorVariants();
 
   return (

@@ -25,7 +25,6 @@ import {
   Landmark,
   Swords,
   Tv,
-  CircleHelp,
   Music,
   Ghost,
   Mountain,

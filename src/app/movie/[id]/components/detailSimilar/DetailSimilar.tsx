@@ -8,15 +8,11 @@ import Image from "next/image";
 import { useVisibleItems } from "@/hooks/useVisibleItems";
 import { Button } from "@/app/components/button";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { fetchDetailSimilar } from "@/api/detail/fetchDetailSimilar";
-import { IDetailSimilarProps, ISimilarMovie } from "./detailSimilar.type";
+import { useRef, useState } from "react";
+import { IDetailSimilarProps } from "./detailSimilar.type";
 import Link from "next/link";
 
-export const DetailSimilar = ({
-  similarMovies,
-  className,
-}: IDetailSimilarProps) => {
+export const DetailSimilar = ({ similarMovies }: IDetailSimilarProps) => {
   const [popularSlide, setPopularSlide] = useState(0);
   const visibleItems = useVisibleItems();
 

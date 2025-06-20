@@ -1,4 +1,3 @@
-import { cn } from "tailwind-variants";
 import { IDetailHeaderProps } from "./detailHeader.type";
 import { detailHeaderVariants } from "./detailHeaderVariants";
 import Image from "next/image";
@@ -7,7 +6,7 @@ import { Button } from "@/app/components/button";
 import { Star, Calendar, Clock, Heart, Share2, Play } from "lucide-react";
 import { useState } from "react";
 
-export const DetailHeader = ({ movie, className }: IDetailHeaderProps) => {
+export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
   const { section } = detailHeaderVariants();
   const [watchlistModalOpen, setWatchlistModalOpen] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);

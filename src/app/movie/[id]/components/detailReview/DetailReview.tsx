@@ -2,19 +2,17 @@ import { cn } from "tailwind-variants";
 import { IDetailReviewProps } from "./detailReviewtype";
 import { detailReviewVariants } from "./detailReviewVariants";
 import Image from "next/image";
-import { Badge } from "@/app/components/badge";
 import { Button } from "@/app/components/button";
-import { Star, Calendar, Clock, Heart, Share2, Play } from "lucide-react";
+import { Star } from "lucide-react";
 import { useState } from "react";
 import { Card } from "@/app/components/card";
-import { CardContent } from "@/app/components/cardContent";
 
 export const DetailReview = ({ reviews }: IDetailReviewProps) => {
   const { section } = detailReviewVariants();
 
   const [visibleReviews, setVisibleReviews] = useState(3); // 처음에 3개만 보이기
   const [loading, setLoading] = useState(false);
-  const [reviewModalOpen, setReviewModalOpen] = useState(false);
+  // const [reviewModalOpen, setReviewModalOpen] = useState(false);
 
   const handleLoadMore = () => {
     setLoading(true);

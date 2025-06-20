@@ -1,10 +1,7 @@
 "use client";
 
-import { Award, Calendar, Globe, TrendingUp, Users } from "lucide-react";
 import { pointVariants } from "./pointVariants";
 import { Card } from "@/app/components/card/Card";
-import { CardContent } from "@/app/components/cardContent/CardContent";
-import { Star, Crown, Zap } from "lucide-react";
 import { Button } from "@/app/components/button/Button";
 
 export const pointData = [

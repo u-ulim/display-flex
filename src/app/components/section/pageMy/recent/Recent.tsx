@@ -2,8 +2,7 @@
 
 import { Card } from "@/app/components/card/Card";
 import { recentVariants } from "./recentVariants";
-import { CardContent } from "@/app/components/cardContent/CardContent";
-import { Heart, Star, Clock, Award, LucideImage } from "lucide-react";
+import { Heart, Star, Clock, LucideImage } from "lucide-react";
 import Image from "next/image";
 
 const myPageRecentData = [

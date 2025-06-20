@@ -2,19 +2,6 @@
 
 import { Card } from "@/app/components/card/Card";
 import { membershipVariants } from "./membershipVariants";
-import { CardContent } from "@/app/components/cardContent/CardContent";
-import {
-  Heart,
-  Star,
-  Clock,
-  Award,
-  ChevronRight,
-  User,
-  Bell,
-  Shield,
-  HelpCircle,
-} from "lucide-react";
-import Image from "next/image";
 
 import { Button } from "@/app/components/button";
 import { Badge } from "@/app/components/badge";

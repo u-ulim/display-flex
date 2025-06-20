@@ -1,10 +1,7 @@
 "use client";
 
-import { Award, Calendar, Globe, TrendingUp } from "lucide-react";
 import { eventVariants } from "./eventVariants";
 import { Card } from "@/app/components/card/Card";
-import { CardContent } from "@/app/components/cardContent/CardContent";
-import { Star, Crown, Zap } from "lucide-react";
 import { Percent, Gift, CalendarHeart } from "lucide-react";
 import { Badge } from "@/app/components/badge/Badge";
 

@@ -1,9 +1,6 @@
 "use client";
 
-import { Award, Calendar, Globe, TrendingUp } from "lucide-react";
 import { yearlyVariants } from "./yearlyVariants";
-import { Card } from "@/app/components/card/Card";
-import { CardContent } from "@/app/components/cardContent/CardContent";
 import { Button } from "@/app/components/button/Button";
 
 const { section } = yearlyVariants();

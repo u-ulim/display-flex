@@ -2,19 +2,7 @@
 
 import { Card } from "@/app/components/card/Card";
 import { settingVariants } from "./settingVariants";
-import { CardContent } from "@/app/components/cardContent/CardContent";
-import {
-  Heart,
-  Star,
-  Clock,
-  Award,
-  ChevronRight,
-  User,
-  Bell,
-  Shield,
-  HelpCircle,
-} from "lucide-react";
-import Image from "next/image";
+import { ChevronRight, User, Bell, Shield, HelpCircle } from "lucide-react";
 
 const settingsMenu = [
   {
