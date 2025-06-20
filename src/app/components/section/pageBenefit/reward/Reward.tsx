@@ -6,7 +6,7 @@ import { Card } from "@/app/components/card/Card";
 
 const { section } = rewardVariants();
 
-export default function Reward() {
+export const Reward = () => {
   return (
     <section className={section()}>
       <h3 className="font-bold-20 mb-4 dark:text-white">리워드 프로그램</h3>
@@ -66,4 +66,4 @@ export default function Reward() {
       </Card>
     </section>
   );
-}
+};
