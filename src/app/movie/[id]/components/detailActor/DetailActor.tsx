@@ -9,7 +9,9 @@ export const DetailActor = ({ cast }: IDetailActorProps) => {
 
   return (
     <section className={section()}>
-      <h3 className="text-2xl font-bold text-gray-900 mb-8">출연진</h3>
+      <h3 className="font-bold-20 text-gray-900 dark:text-white mb-8">
+        출연진
+      </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-10">
         {cast.map((actor) => (
           <Card key={actor.id} className="text-center">
@@ -23,10 +25,10 @@ export const DetailActor = ({ cast }: IDetailActorProps) => {
                   className="object-cover w-full h-full"
                 />
               </div>
-              <h4 className="font-semibold text-sm mb-1 line-clamp-1">
+              <h4 className="font-sb-14 text-gray-900 dark:text-white mb-1 line-clamp-1">
                 {actor.name}
               </h4>
-              <p className="text-xs text-gray-500 line-clamp-1">
+              <p className="font-medium-12 text-gray-500 dark:text-gray-500 line-clamp-1">
                 {actor.character}
               </p>
             </CardContent>

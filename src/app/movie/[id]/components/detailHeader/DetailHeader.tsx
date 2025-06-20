@@ -42,28 +42,36 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
                   </Badge>
                 ))}
               </div>
-              <h1 className="font-bold-32 text-gray-900 mb-4">{movie.title}</h1>
+              <h1 className="font-bold-32 text-gray-900 dark:text-white mb-4">
+                {movie.title}
+              </h1>
               <div className="flex items-center space-x-6 text-gray-600 mb-6">
                 <div className="flex items-center">
                   <Star className="w-5 h-5 text-yellow-400 fill-current mr-1" />
-                  <span className="font-sb-20 text-gray-900">
+                  <span className="font-sb-20 text-gray-900 dark:text-white">
                     {movie.rating}
                   </span>
-                  <span>({movie.reviews.length} 리뷰)</span>
+                  <span className="text-gray-900 dark:text-white">
+                    ({movie.reviews.length} 리뷰)
+                  </span>
                 </div>
                 <div className="flex items-center">
-                  <Calendar className="w-4 h-4 mr-1" />
-                  <span>{movie.year}</span>
+                  <Calendar className="w-4 h-4 mr-1 text-gray-900 dark:text-white" />
+                  <span className="text-gray-900 dark:text-white">
+                    {movie.year}
+                  </span>
                 </div>
                 <div className="flex items-center">
-                  <Clock className="w-4 h-4 mr-1" />
-                  <span>{movie.duration}분</span>
+                  <Clock className="w-4 h-4 mr-1 text-gray-900 dark:text-white" />
+                  <span className="text-gray-900 dark:text-white">
+                    {movie.duration}분
+                  </span>
                 </div>
               </div>
             </div>
 
             <div>
-              <p className="text-gray-700 leading-relaxed line-clamp-2 md:line-clamp-none">
+              <p className="text-gray-700 dark:text-gray-500 leading-relaxed line-clamp-2 md:line-clamp-none">
                 {movie.description}
               </p>
             </div>

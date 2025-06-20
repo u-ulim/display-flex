@@ -29,7 +29,7 @@ export const DetailReview = ({ reviews }: IDetailReviewProps) => {
   return (
     <section className={section()}>
       <div className="flex items-center justify-between mb-10">
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+        <h3 className="font-bold-20 text-gray-900 dark:text-white">
           리뷰 ({reviews.length})
         </h3>
         <Button
@@ -71,23 +71,23 @@ export const DetailReview = ({ reviews }: IDetailReviewProps) => {
                     </h4>
                     <div className="flex items-center">
                       <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                      <span className="ml-1 text-sm text-gray-900 dark:text-white">
+                      <span className="ml-1 font-regular-14 text-gray-900 dark:text-white">
                         {review.rating}
                       </span>
                     </div>
                   </div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                  <span className="font-regular-14 text-gray-500 dark:text-gray-400">
                     {review.date}
                   </span>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 mb-3 line-clamp-2 md:line-clamp-none">
+                <p className="font-regular-14 text-gray-700 dark:text-gray-300 mb-3 line-clamp-2 md:line-clamp-none">
                   {review.content}
                 </p>
                 <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
-                  <button className="hover:text-orange-600 dark:hover:text-orange-400">
+                  <button className="font-medium-12 hover:text-orange-600 dark:hover:text-orange-400">
                     도움이 됨 ({review.helpfulCount})
                   </button>
-                  <button className="hover:text-orange-600 dark:hover:text-orange-400">
+                  <button className="font-medium-12 hover:text-orange-600 dark:hover:text-orange-400">
                     답글
                   </button>
                 </div>
@@ -110,16 +110,16 @@ export const DetailReview = ({ reviews }: IDetailReviewProps) => {
             {loading ? (
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 border-2 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
-                <span className="text-gray-600 dark:text-gray-300">
+                <span className="font-regular-14 text-gray-600 dark:text-gray-300">
                   로딩 중...
                 </span>
               </div>
             ) : (
               <div className="flex items-center space-x-3">
-                <span className="text-gray-700 dark:text-gray-300 font-medium group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                <span className="font-regular-14 text-gray-700 dark:text-gray-300 font-medium group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                   리뷰 더보기
                 </span>
-                <span className="bg-orange-500 text-white px-2 py-0.5 rounded-full text-xs font-medium">
+                <span className="font-medium-12 bg-orange-500 text-white px-2 py-0.5 rounded-full">
                   +{reviews.length - visibleReviews}
                 </span>
               </div>

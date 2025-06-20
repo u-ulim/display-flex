@@ -39,7 +39,7 @@ export const DetailSimilar = ({ similarMovies }: IDetailSimilarProps) => {
   return (
     <section className={section()}>
       <div className="flex items-center justify-between mb-8 pt-10">
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+        <h3 className="font-bold-20 text-gray-900 dark:text-white">
           비슷한 영화 추천
         </h3>
         <div className="flex space-x-2">
@@ -98,10 +98,12 @@ export const DetailSimilar = ({ similarMovies }: IDetailSimilarProps) => {
                       </Badge>
                     </div>
                     <div className="p-3 flex-grow">
-                      <h4 className="font-semibold text-sm mb-1 text-black dark:text-white truncate">
+                      <h4 className="font-sb-14 mb-1 text-black dark:text-white truncate">
                         {movie.title}
                       </h4>
-                      <p className="text-xs text-gray-500">{movie.year}</p>
+                      <p className="font-medium-12 text-gray-500 dark:text-gray-500">
+                        {movie.year}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
