@@ -2,9 +2,9 @@ import React from "react";
 import { Title } from "../components/section/pageBenefit/title";
 
 import { Event } from "../components/section/pageBenefit/event/Event";
-import Membership from "../components/section/pageBenefit/membership/Membership";
-import Reward from "../components/section/pageBenefit/reward/Reward";
-import Point from "../components/section/pageBenefit/point/Point";
+import { Membership } from "../components/section/pageBenefit/membership/Membership";
+import { Reward } from "../components/section/pageBenefit/reward/Reward";
+import { Point } from "../components/section/pageBenefit/point/Point";
 
 export default function BenefitPage() {
   return (

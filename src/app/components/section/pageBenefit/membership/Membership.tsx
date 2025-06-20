@@ -5,7 +5,7 @@ import { membershipPlanData } from "./membershipPlanData";
 
 const { section } = membershipVariants();
 
-export default function Membership() {
+export const Membership = () => {
   return (
     <section className={section()}>
       <h3 className="font-bold-20 mb-4 dark:text-white">멤버십 플랜</h3>
@@ -133,4 +133,4 @@ export default function Membership() {
       </div>
     </section>
   );
-}
+};
