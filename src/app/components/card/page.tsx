@@ -165,7 +165,7 @@ const collections = [
   },
 ];
 
-export const rewards = [
+const rewards = [
   { title: "영화관 할인쿠폰", points: "1,000P", discount: "2,000원 할인" },
   { title: "프리미엄 1개월", points: "5,000P", discount: "9,900원 상당" },
   { title: "팝콘 세트", points: "3,000P", discount: "CGV 팝콘세트" },
