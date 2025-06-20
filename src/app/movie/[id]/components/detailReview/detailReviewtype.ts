@@ -6,6 +6,7 @@ export interface IDetailReviewProps {
     date: string;
     content: string;
     helpfulCount: number;
+    image?: string;
   }[];
   className?: string;
 }

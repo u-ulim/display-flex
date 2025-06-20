@@ -1,9 +1,8 @@
-import { cn } from "tailwind-variants";
 import { IDetailReviewProps } from "./detailReviewtype";
 import { detailReviewVariants } from "./detailReviewVariants";
 import Image from "next/image";
 import { Button } from "@/app/components/button";
-import { Star } from "lucide-react";
+import { Star, UserRound } from "lucide-react";
 import { useState } from "react";
 import { Card } from "@/app/components/card";
 
@@ -47,14 +46,22 @@ export const DetailReview = ({ reviews }: IDetailReviewProps) => {
         {displayedReviews.map((review) => (
           <Card key={review.id} className="p-6">
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full flex-shrink-0">
-                <Image
-                  src="/placeholder.svg"
-                  alt="User avatar"
-                  width={48}
-                  height={48}
-                  className="object-cover rounded-full"
-                />
+              <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full flex-shrink-0 flex items-center justify-center">
+                {review &&
+                review.image &&
+                review.image !== "/placeholder.svg" ? (
+                  <Image
+                    src={review.image}
+                    alt={review.user}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform"
+                  />
+                ) : (
+                  <UserRound
+                    className="w-6 h-6 text-gray-400"
+                    aria-label="No image"
+                  />
+                )}
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-2">

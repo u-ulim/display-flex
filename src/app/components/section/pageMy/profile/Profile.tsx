@@ -3,7 +3,7 @@ import { Card } from "@/app/components/card";
 import { Badge } from "@/app/components/badge";
 import { Button } from "@/app/components/button";
 import Image from "next/image";
-import { LucideImage, SquarePen } from "lucide-react";
+import { SquarePen, UserRound } from "lucide-react";
 
 const { section } = profileVariants();
 const movie = {
@@ -25,7 +25,7 @@ export const Profile = () => {
                 className="object-cover group-hover:scale-105 transition-transform"
               />
             ) : (
-              <LucideImage
+              <UserRound
                 className="w-12 h-12 text-gray-400"
                 aria-label="No image"
               />

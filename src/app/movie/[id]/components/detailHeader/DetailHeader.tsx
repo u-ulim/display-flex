@@ -8,8 +8,8 @@ import { useState } from "react";
 
 export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
   const { section } = detailHeaderVariants();
-  const [watchlistModalOpen, setWatchlistModalOpen] = useState(false);
-  const [shareModalOpen, setShareModalOpen] = useState(false);
+  // const [watchlistModalOpen, setWatchlistModalOpen] = useState(false);
+  // const [shareModalOpen, setShareModalOpen] = useState(false);
 
   return (
     <section className={section()}>
@@ -83,7 +83,7 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
               <Button
                 type="button"
                 variant="outline"
-                onClick={() => setWatchlistModalOpen(true)}
+                // onClick={() => setWatchlistModalOpen(true)}
                 size="md"
                 className="font-regular-14"
               >
@@ -93,7 +93,7 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
               <Button
                 type="button"
                 variant="outline"
-                onClick={() => setShareModalOpen(true)}
+                // onClick={() => setShareModalOpen(true)}
                 size="md"
                 className="font-regular-14"
               >

@@ -3,7 +3,7 @@
 import { Card } from "../Card";
 import { genreVariants } from "./reviewVariants";
 import Image from "next/image";
-import { Star, User, Loader2 } from "lucide-react";
+import { Star, Loader2, UserRound } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { fetchReviews, ReviewData } from "../../../../api/landing/fetchReviews";
 
@@ -120,7 +120,7 @@ export const Review = () => {
                 <div className="hidden md:flex items-center text-gray-500 dark:text-gray-400">
                   <div className="w-16 h-16 bg-gray-200 dark:bg-gray-100 rounded-full flex-shrink-0 mr-1 flex items-center justify-center">
                     {imageErrors[review.id] || !review.userAvatar ? (
-                      <User className="w-6 h-6 text-gray-400 dark:text-gray-500" />
+                      <UserRound className="w-6 h-6 text-gray-400 dark:text-gray-500" />
                     ) : (
                       <Image
                         src={review.userAvatar}
@@ -148,12 +148,12 @@ export const Review = () => {
                       </div>
                     </div>
                     <p className="text-gray-600 dark:text-gray-300 mb-3 line-clamp-2 h-12">
-                      "{review.reviewText}"
+                      {review.reviewText}
                     </p>
                     <div className="flex items-center text-gray-500 dark:text-gray-400">
                       <div className="md:hidden w-5 h-5 bg-gray-200 dark:bg-gray-700 rounded-full flex-shrink-0 mr-1 flex items-center justify-center">
                         {imageErrors[review.id] || !review.userAvatar ? (
-                          <User className="w-3 h-3 text-gray-400 dark:text-gray-500" />
+                          <UserRound className="w-3 h-3 text-gray-400 dark:text-gray-500" />
                         ) : (
                           <Image
                             src={review.userAvatar}

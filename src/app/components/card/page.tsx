@@ -339,8 +339,8 @@ export default function CardPage() {
                     </div>
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 mb-3">
-                    "정말 훌륭한 영화였습니다. 스토리텔링이 뛰어나고 연기력도
-                    최고였어요. 강력히 추천합니다!"
+                    정말 훌륭한 영화였습니다. 스토리텔링이 뛰어나고 연기력도
+                    최고였어요. 강력히 추천합니다!
                   </p>
                   <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                     <span>리뷰어{i}</span>

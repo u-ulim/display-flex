@@ -50,7 +50,6 @@ export const Footer = () => {
     },
   ];
 
-  const { theme } = useTheme();
   return (
     <footer className={footer()}>
       <div className={inner()}>

@@ -17,7 +17,6 @@ import {
   Heart,
   Rocket,
 } from "lucide-react";
-import { useState } from "react";
 
 const genres = [
   { label: "액션", icon: <Flame className="w-4 h-4 mr-1 text-red-500" /> },

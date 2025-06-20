@@ -1,15 +1,10 @@
 "use client";
 import { X, Play, Volume2, VolumeX, Maximize, Settings } from "lucide-react";
 
-import { NewVariants } from "./trailerModalVariants";
-
 import { ITrailerModalProps } from "./trailerModal.type";
 import Image from "next/image";
-import { useVisibleItems } from "@/hooks/useVisibleItems";
 import { Button } from "@/app/components/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { fetchNews } from "@/api/landing/fetchNews";
+import { useState } from "react";
 import { Modal } from "../common";
 
 export const TrailerModal = ({
