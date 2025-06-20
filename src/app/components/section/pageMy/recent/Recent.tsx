@@ -3,7 +3,7 @@
 import { Card } from "@/app/components/card/Card";
 import { recentVariants } from "./recentVariants";
 import { CardContent } from "@/app/components/cardContent/CardContent";
-import { Heart, Star, Clock, Award } from "lucide-react";
+import { Heart, Star, Clock, Award, LucideImage } from "lucide-react";
 import Image from "next/image";
 
 const myPageRecentData = [
@@ -50,14 +50,21 @@ export const Recent = () => {
             className="p-4 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
           >
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-18 bg-gray-200 dark:bg-gray-700 rounded overflow-hidden flex-shrink-0">
-                <Image
-                  src={activity.image}
-                  alt="Movie"
-                  width={48}
-                  height={72}
-                  className="object-cover w-full h-full"
-                />
+              <div className="w-12 h-18 bg-gray-200 dark:bg-gray-700 rounded overflow-hidden flex-shrink-0 flex items-center justify-center">
+                {activity.image && activity.image !== "/placeholder.svg" ? (
+                  <Image
+                    src={activity.image}
+                    alt="Movie"
+                    width={48}
+                    height={72}
+                    className="object-cover w-full h-full"
+                  />
+                ) : (
+                  <LucideImage
+                    className="w-12 h-12 text-gray-400"
+                    aria-label="No image"
+                  />
+                )}
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-1">
