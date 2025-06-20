@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Badge } from "@/app/components/badge";
 import { Button } from "@/app/components/button";
 import { Star, Calendar, Clock, Heart, Share2, Play } from "lucide-react";
-import { useState } from "react";
 
 export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
   const { section } = detailHeaderVariants();

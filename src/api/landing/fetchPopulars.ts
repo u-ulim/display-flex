@@ -1,4 +1,14 @@
 "use client";
+export interface IPopulars {
+  id: number;
+  title: string;
+  overview: string;
+  vote_average: number;
+  release_date: string;
+  genre_ids: number[];
+  backdrop_path: string;
+}
+
 export async function fetchPopulars() {
   const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
@@ -30,7 +40,7 @@ export async function fetchPopulars() {
 
   const data = await res.json();
   // 필요한 데이터만 가공
-  return data.results.slice(0, 12).map((movie: any, idx: number) => ({
+  return data.results.slice(0, 12).map((movie: IPopulars) => ({
     id: movie.id,
     title: movie.title,
     description: movie.overview,

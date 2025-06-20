@@ -1,5 +1,4 @@
 "use client";
-import { useTheme } from "@/app/contexts/ThemeContext";
 import { footerVariants } from "./footerVariants";
 import {
   ChartNoAxesGantt,

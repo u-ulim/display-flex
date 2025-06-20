@@ -1,7 +1,8 @@
 "use client";
 import { useTheme } from "@/app/contexts/ThemeContext";
 import { headerVariants } from "./headerVariants";
-
+import Image from "next/image";
+import Link from "next/link";
 const { header, inner, flexWrapper } = headerVariants();
 
 export const Header = () => {
@@ -15,9 +16,23 @@ export const Header = () => {
             className="hover:opacity-80 transition-opacity cursor-pointer"
           >
             {theme === "dark" ? (
-              <img src="/Logo-black.png" alt="Display Flex" className="h-12" />
+              <Link href="/">
+                <Image
+                  src="/Logo-black.png"
+                  alt="Display Flex"
+                  width={132}
+                  height={48}
+                />
+              </Link>
             ) : (
-              <img src="/Logo-white.png" alt="Display Flex" className="h-12" />
+              <Link href="/">
+                <Image
+                  src="/Logo-white.png"
+                  alt="Display Flex"
+                  width={132}
+                  height={48}
+                />
+              </Link>
             )}
           </button>
         </div>

@@ -10,6 +10,8 @@ export interface ReviewData {
   reviewText: string;
   rating: number;
   createdAt: string;
+  title: string;
+  poster_path: string;
 }
 
 export async function fetchReviews(
@@ -17,28 +19,6 @@ export async function fetchReviews(
   limit: number = 3
 ): Promise<ReviewData[]> {
   const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
-
-  const GENRE_MAP: Record<number, string> = {
-    28: "액션",
-    12: "모험",
-    16: "애니메이션",
-    35: "코미디",
-    80: "범죄",
-    99: "다큐멘터리",
-    18: "드라마",
-    10751: "가족",
-    14: "판타지",
-    36: "역사",
-    27: "공포",
-    10402: "음악",
-    9648: "미스터리",
-    10749: "로맨스",
-    878: "SF",
-    10770: "TV 영화",
-    53: "스릴러",
-    10752: "전쟁",
-    37: "서부",
-  };
 
   // 임시 리뷰 텍스트 배열
   const reviewTexts = [
@@ -77,27 +57,29 @@ export async function fetchReviews(
     const data = await res.json();
 
     // 영화 데이터를 리뷰 데이터로 변환
-    return data.results.slice(0, limit).map((movie: any, idx: number) => {
-      const globalIndex = (page - 1) * limit + idx;
-      const rating = Math.floor(Math.random() * 5) + 6; // 6-10 범위의 평점
+    return data.results
+      .slice(0, limit)
+      .map((movie: ReviewData, idx: number) => {
+        const globalIndex = (page - 1) * limit + idx;
+        const rating = Math.floor(Math.random() * 5) + 6; // 6-10 범위의 평점
 
-      return {
-        id: globalIndex + 1,
-        movieId: movie.id,
-        movieTitle: movie.title,
-        moviePoster: `https://image.tmdb.org/t/p/w200${movie.poster_path}`,
-        userNickname: userNames[globalIndex % userNames.length],
-        userAvatar: Math.random() > 0.5 ? undefined : "/placeholder.svg", // 50% 확률로 아바타 없음
-        reviewText: reviewTexts[globalIndex % reviewTexts.length],
-        rating: rating + Math.random() * 0.9, // 소수점 추가
-        createdAt: new Date(
-          Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000
-        )
-          .toISOString()
-          .split("T")[0]
-          .replace(/-/g, "."),
-      };
-    });
+        return {
+          id: globalIndex + 1,
+          movieId: movie.id,
+          movieTitle: movie.title,
+          moviePoster: `https://image.tmdb.org/t/p/w200${movie.poster_path}`,
+          userNickname: userNames[globalIndex % userNames.length],
+          userAvatar: Math.random() > 0.5 ? undefined : "/placeholder.svg", // 50% 확률로 아바타 없음
+          reviewText: reviewTexts[globalIndex % reviewTexts.length],
+          rating: rating + Math.random() * 0.9, // 소수점 추가
+          createdAt: new Date(
+            Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000
+          )
+            .toISOString()
+            .split("T")[0]
+            .replace(/-/g, "."),
+        };
+      });
   } catch (error) {
     console.error("Error fetching reviews:", error);
     return [];

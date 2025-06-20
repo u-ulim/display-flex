@@ -60,7 +60,7 @@ export const Recent = () => {
                   />
                 ) : (
                   <LucideImage
-                    className="w-12 h-12 text-gray-400"
+                    className="w-6 h-6 text-gray-400"
                     aria-label="No image"
                   />
                 )}
