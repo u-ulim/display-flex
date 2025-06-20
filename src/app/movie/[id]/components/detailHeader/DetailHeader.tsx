@@ -48,7 +48,7 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
               <div className="flex items-center space-x-6 text-gray-600 mb-6">
                 <div className="flex items-center">
                   <Star className="w-5 h-5 text-yellow-400 fill-current mr-1" />
-                  <span className="font-sb-20 text-gray-900 dark:text-white">
+                  <span className="font-sb-20 text-gray-500 dark:text-white">
                     {movie.rating}
                   </span>
                   <span className="text-gray-900 dark:text-white">
@@ -56,13 +56,13 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <Calendar className="w-4 h-4 mr-1 text-gray-900 dark:text-white" />
+                  <Calendar className="w-4 h-4 mr-1 text-gray-500" />
                   <span className="text-gray-900 dark:text-white">
                     {movie.year}
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <Clock className="w-4 h-4 mr-1 text-gray-900 dark:text-white" />
+                  <Clock className="w-4 h-4 mr-1 text-gray-500" />
                   <span className="text-gray-900 dark:text-white">
                     {movie.duration}분
                   </span>
@@ -94,7 +94,7 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
                 size="md"
                 className="font-regular-14"
               >
-                <Heart className="w-4 h-4 mr-2 md:mr-4" />
+                <Heart className="w-4 h-4 mr-2 md:mr-4 text-gray-500" />
                 찜하기
               </Button>
               <Button
@@ -104,7 +104,7 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
                 size="md"
                 className="font-regular-14"
               >
-                <Share2 className="w-4 h-4 mr-2 md:mr-4" />
+                <Share2 className="w-4 h-4 mr-2 md:mr-4 text-gray-500" />
                 공유하기
               </Button>
             </div>
