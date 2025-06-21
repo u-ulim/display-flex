@@ -13,7 +13,8 @@ export interface IButtonProps {
     | "nonOutline"
     | "select"
     | "allView"
-    | "more";
+    | "more"
+    | "modalIcon";
   size?: "default" | "sm" | "md" | "lg" | "footer" | "pagination";
   disabled?: boolean;
 }
