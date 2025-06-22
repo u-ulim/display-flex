@@ -9,11 +9,15 @@ import { IHeroBanner } from "./bannerSlide.type";
 import { Star } from "lucide-react";
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { fetchHeroBanners } from "@/api/landing/fetchHeroBanners";
+import { TrailerModal } from "@/app/components/modal/trailer/TrailerModal";
+import { useAutoPlayStore } from "@/store/useAutoPlayStore";
 
 export const BannerSlide = () => {
   const [currentBanner, setCurrentBanner] = useState(0);
-  const [heroBanners, setHeroBanners] = useState([]);
-  const [autoplay, setAutoplay] = useState(true);
+  const [heroBanners, setHeroBanners] = useState<IHeroBanner[]>([]);
+  const [openModalIndex, setOpenModalIndex] = useState<number | null>(null);
+  const { isAutoPlayEnabled, pauseAllAutoPlay, resumeAllAutoPlay } =
+    useAutoPlayStore();
   // 메인 배너 데이터
 
   useEffect(() => {
@@ -24,14 +28,19 @@ export const BannerSlide = () => {
 
   // 메인 배너 자동 슬라이드
   useEffect(() => {
-    if (!autoplay || heroBanners.length === 0) return;
+    if (
+      !isAutoPlayEnabled ||
+      heroBanners.length === 0 ||
+      openModalIndex !== null
+    )
+      return;
 
     const interval = setInterval(() => {
       setCurrentBanner((prev) => (prev + 1) % heroBanners.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [autoplay, heroBanners.length]);
+  }, [isAutoPlayEnabled, heroBanners.length, openModalIndex]);
 
   useEffect(() => {
     if (currentBanner >= heroBanners.length) {
@@ -93,7 +102,10 @@ export const BannerSlide = () => {
                   type="button"
                   className="bg-primary font-regular-14 w-32 h-10
           "
-                  onClick={() => console.log("clicked")}
+                  onClick={() => {
+                    setOpenModalIndex(index);
+                    pauseAllAutoPlay();
+                  }}
                   variant="play"
                   size="sm"
                 >
@@ -103,6 +115,21 @@ export const BannerSlide = () => {
               </div>
             </div>
           </div>
+          <TrailerModal
+            key={`trailer-${banner.id}`}
+            isOpen={openModalIndex === index}
+            onClose={() => {
+              setOpenModalIndex(null);
+              resumeAllAutoPlay();
+            }}
+            movieTitle={banner.title}
+            trailerUrl={banner.trailerUrl}
+            trailerThumbnailUrl={banner.trailerThumbnailUrl}
+            year={banner.year}
+            genres={banner.genres}
+            runtime={banner.runtime}
+            certification={banner.certification}
+          />
         </div>
       ))}
       {/* Banner Navigation */}
@@ -115,8 +142,10 @@ export const BannerSlide = () => {
             }`}
             onClick={() => {
               setCurrentBanner(index);
-              setAutoplay(false);
-              setTimeout(() => setAutoplay(true), 10000);
+              if (openModalIndex === null) {
+                pauseAllAutoPlay();
+                setTimeout(() => resumeAllAutoPlay(), 10000);
+              }
             }}
           />
         ))}
@@ -129,8 +158,10 @@ export const BannerSlide = () => {
           setCurrentBanner(
             (prev) => (prev - 1 + heroBanners.length) % heroBanners.length
           );
-          setAutoplay(false);
-          setTimeout(() => setAutoplay(true), 10000);
+          if (openModalIndex === null) {
+            pauseAllAutoPlay();
+            setTimeout(() => resumeAllAutoPlay(), 10000);
+          }
         }}
         variant="arrow"
       >
@@ -141,14 +172,17 @@ export const BannerSlide = () => {
         className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20"
         onClick={() => {
           setCurrentBanner((prev) => (prev + 1) % heroBanners.length);
-          setAutoplay(false);
-          setTimeout(() => setAutoplay(true), 10000);
+          if (openModalIndex === null) {
+            pauseAllAutoPlay();
+            setTimeout(() => resumeAllAutoPlay(), 10000);
+          }
         }}
         variant="arrow"
       >
         {/* absolute left-4 top-1/2 transform -translate-y-1/2 */}
         <ChevronRight className="w-6 h-6" />
       </Button>
+      d
     </section>
   );
 };

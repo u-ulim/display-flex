@@ -11,5 +11,10 @@ export interface IHeroBanner {
   rating: string;
   year: string;
   genre: string;
+  genres: string[];
   image: string;
+  trailerUrl: string;
+  trailerThumbnailUrl: string;
+  runtime: number;
+  certification: string;
 }

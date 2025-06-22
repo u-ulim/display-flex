@@ -1,3 +1,9 @@
+import {
+  fetchCertification,
+  fetchTrailerUrl,
+  IGenre,
+} from "../common/movieUtils";
+
 export interface MovieDetail {
   id: number;
   title: string;
@@ -6,8 +12,11 @@ export interface MovieDetail {
   rating: number;
   year: number;
   genre: string[];
+  genres: IGenre[];
   duration: number;
   director: string;
+  trailerUrl: string;
+  certification: string;
   cast: {
     id: number;
     name: string;
@@ -30,10 +39,7 @@ export interface MovieDetail {
     year: number;
   }[];
 }
-export interface IGenre {
-  id: number;
-  name: string;
-}
+
 export interface ICrew {
   id: number;
   name: string;
@@ -75,25 +81,35 @@ export async function fetchMovieDetail(
     console.log("🎬 Fetching movie from TMDB with ID:", movieId);
 
     // TMDB API 호출
-    const [movieResponse, creditsResponse, reviewsResponse, similarResponse] =
-      await Promise.all([
-        // 영화 기본 정보
-        fetch(
-          `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_API_KEY}&language=ko-KR`
-        ),
-        // 출연진 정보
-        fetch(
-          `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${TMDB_API_KEY}`
-        ),
-        // 리뷰 정보
-        fetch(
-          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${TMDB_API_KEY}&language=en-US&page=1`
-        ),
-        // 비슷한 영화
-        fetch(
-          `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${TMDB_API_KEY}&language=ko-KR&page=1`
-        ),
-      ]);
+    const [
+      movieResponse,
+      creditsResponse,
+      reviewsResponse,
+      similarResponse,
+      trailerUrl,
+      certification,
+    ] = await Promise.all([
+      // 영화 기본 정보
+      fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_API_KEY}&language=ko-KR`
+      ),
+      // 출연진 정보
+      fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${TMDB_API_KEY}`
+      ),
+      // 리뷰 정보
+      fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${TMDB_API_KEY}&language=en-US&page=1`
+      ),
+      // 비슷한 영화
+      fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${TMDB_API_KEY}&language=ko-KR&page=1`
+      ),
+      // 트레일러 정보
+      fetchTrailerUrl(parseInt(movieId), TMDB_API_KEY),
+      // 시청 등급 정보
+      fetchCertification(parseInt(movieId), TMDB_API_KEY),
+    ]);
 
     if (!movieResponse.ok) {
       console.log("❌ Movie not found for ID:", movieId);
@@ -119,10 +135,13 @@ export async function fetchMovieDetail(
       rating: Math.round(movieData.vote_average * 10) / 10,
       year: new Date(movieData.release_date).getFullYear(),
       genre: movieData.genres?.map((g: IGenre) => g.name) || [],
+      genres: movieData.genres || [],
       duration: movieData.runtime || 0,
       director:
         creditsData.crew?.find((person: ICrew) => person.job === "Director")
           ?.name || "정보 없음",
+      trailerUrl,
+      certification,
       cast:
         creditsData.cast?.slice(0, 6).map((actor: ICast) => ({
           id: actor.id,
@@ -168,22 +187,3 @@ export async function fetchMovieDetail(
     return null;
   }
 }
-
-// 실제 API 호출 버전 (나중에 사용)
-/*
-export async function fetchMovieDetail(movieId: string): Promise<MovieDetail | null> {
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/movie/${movieId}`);
-    
-    if (!response.ok) {
-      throw new Error('Movie not found');
-    }
-    
-    const movie = await response.json();
-    return movie;
-  } catch (error) {
-    console.error('Failed to fetch movie detail:', error);
-    return null;
-  }
-}
-*/
