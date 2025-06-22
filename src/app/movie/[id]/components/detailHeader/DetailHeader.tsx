@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Badge } from "@/app/components/badge";
 import { Button } from "@/app/components/button";
 import { Star, Calendar, Clock, Heart, Share2, Play } from "lucide-react";
-import { useAutoPlayStore } from "@/store/useAutoPlayStore";
+
 import { TrailerModal } from "@/app/components/modal/trailer/TrailerModal";
 import { useState } from "react";
 

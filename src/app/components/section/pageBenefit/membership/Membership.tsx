@@ -3,7 +3,7 @@
 import { membershipVariants } from "./membershipVariants";
 import { membershipPlanData } from "./membershipPlanData";
 import { PaymentModal } from "@/app/components/modal/payment/PaymentModal";
-import { Plan } from "@/app/components/modal/payment/paymentModal.type";
+
 import { useState } from "react";
 import React from "react";
 
