@@ -99,7 +99,7 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
                 variant="outline"
                 // onClick={() => setWatchlistModalOpen(true)}
                 size="md"
-                className="font-regular-14"
+                className="font-regular-14 !cursor-default"
               >
                 <Heart className="w-4 h-4 mr-2 md:mr-4 text-gray-500" />
                 찜하기
@@ -109,7 +109,7 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
                 variant="outline"
                 // onClick={() => setShareModalOpen(true)}
                 size="md"
-                className="font-regular-14"
+                className="font-regular-14 !cursor-default"
               >
                 <Share2 className="w-4 h-4 mr-2 md:mr-4 text-gray-500" />
                 공유하기

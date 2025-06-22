@@ -26,7 +26,11 @@ export const Membership = () => {
       <h3 className="font-bold-20 mb-4 dark:text-white">멤버십 정보</h3>
       <div className="space-y-2">
         {memberships.map((m, i) => (
-          <Card key={i} className={`p-6 ${m.gradient}`}>
+          <Card
+            key={i}
+            className={`p-6 ${m.gradient} cursor-default`}
+            onClick={() => {}}
+          >
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h4 className="font-sb-18 text-gray-900 dark:text-white mb-2">

@@ -34,7 +34,7 @@ export const DetailReview = ({ reviews }: IDetailReviewProps) => {
         </h3>
         <Button
           type="button"
-          className="font-regular-14"
+          className="font-regular-14 !cursor-default"
           variant="allView"
           size="sm"
         >
@@ -44,7 +44,7 @@ export const DetailReview = ({ reviews }: IDetailReviewProps) => {
 
       <div className="space-y-6">
         {displayedReviews.map((review) => (
-          <Card key={review.id} className="p-6">
+          <Card key={review.id} className="p-6 cursor-default">
             <div className="flex items-start space-x-4">
               <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full flex-shrink-0 flex items-center justify-center">
                 {review &&
