@@ -107,7 +107,7 @@ export const TrailerModal = ({
 
   return (
     <Modal open={isOpen} onOpenChange={handleClose}>
-      <Modal.Content className="max-w-4xl w-full p-0 bg-black absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-xl">
+      <Modal.Content className="max-w-4xl w-full p-0 bg-black absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-xl p-6">
         <Modal.Header className="absolute top-4 left-4 z-10">
           <Modal.Title className="text-white text-lg font-semibold">
             {movieTitle} - 트레일러

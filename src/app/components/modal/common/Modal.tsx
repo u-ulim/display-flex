@@ -41,7 +41,7 @@ Modal.Content = function ModalContent({
   children: ReactNode;
   className?: string;
 }) {
-  return <div className={`p-6 ${className}`}>{children}</div>;
+  return <div className={`${className}`}>{children}</div>;
 };
 
 // ModalHeader
