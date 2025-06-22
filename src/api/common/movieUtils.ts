@@ -1,3 +1,41 @@
+// TMDB API 응답 타입 정의
+interface ReleaseDate {
+  certification: string;
+  descriptors: string[];
+  iso_639_1: string;
+  note: string;
+  release_date: string;
+  type: number;
+}
+
+interface ReleaseDatesResult {
+  iso_3166_1: string;
+  release_dates: ReleaseDate[];
+}
+
+interface ReleaseDatesResponse {
+  id: number;
+  results: ReleaseDatesResult[];
+}
+
+interface Video {
+  iso_639_1: string;
+  iso_3166_1: string;
+  name: string;
+  key: string;
+  site: string;
+  size: number;
+  type: string;
+  official: boolean;
+  published_at: string;
+  id: string;
+}
+
+interface VideosResponse {
+  id: number;
+  results: Video[];
+}
+
 // 시청 가능 연령 정보를 가져오는 함수
 export async function fetchCertification(
   movieId: number,
@@ -7,18 +45,18 @@ export async function fetchCertification(
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}/release_dates?api_key=${apiKey}`
     );
-    const data = await res.json();
+    const data: ReleaseDatesResponse = await res.json();
 
     // 한국 지역의 certification 찾기
     const krRelease = data.results?.find(
-      (release: any) => release.iso_3166_1 === "KR"
+      (release: ReleaseDatesResult) => release.iso_3166_1 === "KR"
     );
     let certification = krRelease?.release_dates?.[0]?.certification;
 
     // 한국 등급이 없으면 미국 등급 사용
     if (!certification) {
       const usRelease = data.results?.find(
-        (release: any) => release.iso_3166_1 === "US"
+        (release: ReleaseDatesResult) => release.iso_3166_1 === "US"
       );
       certification = usRelease?.release_dates?.[0]?.certification;
     }
@@ -57,18 +95,18 @@ export async function fetchTrailerUrl(
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=ko-KR`
     );
-    const data = await res.json();
+    const data: VideosResponse = await res.json();
 
     // YouTube 트레일러 찾기 (Official 트레일러 우선)
     const trailer =
       data.results?.find(
-        (video: any) =>
+        (video: Video) =>
           video.site === "YouTube" &&
           (video.type === "Trailer" || video.type === "Teaser") &&
           video.official === true
       ) ||
       data.results?.find(
-        (video: any) =>
+        (video: Video) =>
           video.site === "YouTube" &&
           (video.type === "Trailer" || video.type === "Teaser")
       );
