@@ -2,86 +2,113 @@
 
 import { membershipVariants } from "./membershipVariants";
 import { membershipPlanData } from "./membershipPlanData";
+import { PaymentModal } from "@/app/components/modal/payment/PaymentModal";
+import { Plan } from "@/app/components/modal/payment/paymentModal.type";
+import { useState } from "react";
+import React from "react";
 
 const { section } = membershipVariants();
 
 export const Membership = () => {
+  const [selectedPlanKey, setSelectedPlanKey] = useState<string | null>(null);
+
   return (
     <section className={section()}>
       <h3 className="font-bold-20 mb-4 dark:text-white">멤버십 플랜</h3>
       <div className="space-y-4">
-        {membershipPlanData.map((plan) => {
+        {membershipPlanData.map((plan, index) => {
           const Icon = plan.icon;
           return (
-            <button
-              key={plan.key}
-              className={`w-full p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg text-left group relative overflow-hidden ${plan.bg} ${plan.border}`}
-            >
-              {plan.highlight && (
-                <div
-                  className={`absolute top-0 right-0 px-4 py-1 rounded-bl-xl font-sb-12 ${plan.highlightBg}`}
-                >
-                  {plan.highlightText}
-                </div>
-              )}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
+            <div key={plan.key}>
+              <button
+                key={plan.key}
+                className={`w-full p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg text-left group relative overflow-hidden ${
+                  index === 0 ? "" : "cursor-pointer"
+                } ${plan.bg} ${plan.border}`}
+                onClick={() => setSelectedPlanKey(plan.key)}
+              >
+                {plan.highlight && (
                   <div
-                    className={`w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg ${plan.iconBg}`}
+                    className={`absolute top-0 right-0 px-4 py-1 rounded-bl-xl font-sb-12 ${plan.highlightBg}`}
                   >
-                    <Icon className={`w-8 h-8 ${plan.iconColor}`} />
+                    {plan.highlightText}
                   </div>
-                  <div>
-                    <h4 className="font-bold-20 text-gray-900 dark:text-white mb-1.5">
-                      {plan.title}
-                    </h4>
-                    <p className="font-regular-14 text-gray-600 dark:text-gray-300">
-                      {plan.description}
-                    </p>
-                    <div className="flex items-center space-x-3 mt-2">
-                      {plan.features.map((feature, idx) => (
-                        <span
-                          key={feature}
-                          className={`font-medium-12   bg-${
-                            Array.isArray(plan.featureColor)
-                              ? plan.featureColor[idx]
-                              : plan.featureColor
-                          }-100 dark:bg-${
-                            Array.isArray(plan.featureColor)
-                              ? plan.featureColor[idx]
-                              : plan.featureColor
-                          }-900/30 text-${
-                            Array.isArray(plan.featureColor)
-                              ? plan.featureColor[idx]
-                              : plan.featureColor
-                          }-700 dark:text-${
-                            Array.isArray(plan.featureColor)
-                              ? plan.featureColor[idx]
-                              : plan.featureColor
-                          }-400 px-2 py-1 rounded-full`}
-                        >
-                          {feature}
-                        </span>
-                      ))}
+                )}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div
+                      className={`w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg ${plan.iconBg}`}
+                    >
+                      <Icon className={`w-8 h-8 ${plan.iconColor}`} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold-20 text-gray-900 dark:text-white mb-1.5">
+                        {plan.title}
+                      </h4>
+                      <p className="font-regular-14 text-gray-600 dark:text-gray-300">
+                        {plan.description}
+                      </p>
+                      <div className="flex items-center space-x-3 mt-2">
+                        {plan.features.map((feature, idx) => (
+                          <span
+                            key={feature}
+                            className={`font-medium-12   bg-${
+                              Array.isArray(plan.featureColor)
+                                ? plan.featureColor[idx]
+                                : plan.featureColor
+                            }-100 dark:bg-${
+                              Array.isArray(plan.featureColor)
+                                ? plan.featureColor[idx]
+                                : plan.featureColor
+                            }-900/30 text-${
+                              Array.isArray(plan.featureColor)
+                                ? plan.featureColor[idx]
+                                : plan.featureColor
+                            }-700 dark:text-${
+                              Array.isArray(plan.featureColor)
+                                ? plan.featureColor[idx]
+                                : plan.featureColor
+                            }-400 px-2 py-1 rounded-full`}
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div
+                      className={
+                        plan.priceGradient
+                          ? `font-bold-32 ${plan.priceGradient}`
+                          : "font-bold-32 text-gray-900 dark:text-white"
+                      }
+                    >
+                      {plan.price}
+                    </div>
+                    <div className="font-regular-14 text-gray-500 dark:text-gray-400 mt-1">
+                      {plan.priceDetail}
                     </div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div
-                    className={
-                      plan.priceGradient
-                        ? `font-bold-32 ${plan.priceGradient}`
-                        : "font-bold-32 text-gray-900 dark:text-white"
-                    }
-                  >
-                    {plan.price}
-                  </div>
-                  <div className="font-regular-14 text-gray-500 dark:text-gray-400 mt-1">
-                    {plan.priceDetail}
-                  </div>
-                </div>
-              </div>
-            </button>
+              </button>
+              <PaymentModal
+                isOpen={selectedPlanKey === plan.key}
+                onClose={() => {
+                  setSelectedPlanKey(null);
+                }}
+                selectedPlan={plan.key}
+                planName={plan.name}
+                planType={plan.type}
+                planPrice={plan.originalPrice}
+                planOriginalPrice={plan.originalPrice}
+                planFeatures={plan.features}
+                planIcon={React.createElement(plan.icon, {
+                  className: "w-5 h-5 text-white",
+                })}
+                planColor={plan.iconBg}
+              />
+            </div>
           );
         })}
       </div>

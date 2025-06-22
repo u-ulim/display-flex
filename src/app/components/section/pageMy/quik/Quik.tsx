@@ -45,7 +45,7 @@ export const Quik = () => {
         {myPageQuickData.map((item, i) => (
           <Card
             key={i}
-            className="p-4 text-center hover:shadow-lg transition-shadow cursor-pointer bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            className="p-4 text-center hover:shadow-lg transition-shadow cursor-default bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
             onClick={() => {}}
           >
             <CardContent variant="default">

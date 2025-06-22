@@ -44,7 +44,7 @@ export const Fast = () => {
         {categories.map((cat, i) => (
           <Card
             key={i}
-            className="p-6 text-center hover:shadow-lg transition-shadow cursor-pointer group bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            className="p-6 text-center hover:shadow-lg transition-shadow cursor-default group bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
             onClick={() => {}}
           >
             <CardContent variant="default">

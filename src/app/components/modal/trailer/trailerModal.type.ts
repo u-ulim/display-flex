@@ -4,4 +4,9 @@ export interface ITrailerModalProps {
   movieTitle: string;
   trailerUrl?: string;
   trailerThumbnailUrl?: string;
+  thumbnailUrl?: string;
+  genres: string[];
+  year?: string;
+  runtime?: number;
+  certification?: string;
 }

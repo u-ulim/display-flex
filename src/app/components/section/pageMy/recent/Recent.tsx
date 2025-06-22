@@ -46,7 +46,7 @@ export const Recent = () => {
         {myPageRecentData.map((activity, idx) => (
           <Card
             key={idx}
-            className="p-4 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            className="p-4 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 cursor-default"
           >
             <div className="flex items-center space-x-4">
               <div className="w-12 h-18 bg-gray-200 dark:bg-gray-700 rounded overflow-hidden flex-shrink-0 flex items-center justify-center">

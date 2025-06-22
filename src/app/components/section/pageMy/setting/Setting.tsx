@@ -37,7 +37,7 @@ export const Setting = () => {
         {settingsMenu.map((item) => (
           <Card
             key={item.key}
-            className="p-4 hover:shadow-lg transition-shadow cursor-pointer bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            className="p-4 hover:shadow-lg transition-shadow cursor-default bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">

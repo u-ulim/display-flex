@@ -97,7 +97,7 @@ export const Review = () => {
             ref={index === reviews.length - 1 ? lastReviewElementRef : null}
           >
             <Card
-              className="p-6 cursor-pointer hover:shadow-lg transition-shadow dark:bg-gray-700 dark:border-gray-600"
+              className="p-6 cursor-default hover:shadow-lg transition-shadow dark:bg-gray-700 dark:border-gray-600"
               onClick={() => {}}
             >
               <div className="flex items-center gap-4 space-x-4">

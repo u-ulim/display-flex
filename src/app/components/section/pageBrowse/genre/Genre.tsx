@@ -26,7 +26,7 @@ export const Genre = () => {
         {genres.map((genre, i) => (
           <Card
             key={i}
-            className="relative overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
+            className="relative overflow-hidden hover:shadow-lg transition-shadow cursor-default group"
           >
             <div
               className={`absolute inset-0 ${genre.color} opacity-80 group-hover:opacity-90 transition-opacity`}

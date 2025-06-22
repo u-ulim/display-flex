@@ -1,4 +1,3 @@
-"use client";
 export interface IPopulars {
   id: number;
   title: string;
