@@ -75,7 +75,7 @@ export const NewSlide = () => {
           </div>
           <Button
             type="button"
-            className="font-regular-14"
+            className="font-regular-14 !cursor-default"
             variant="allView"
             size="sm"
           >

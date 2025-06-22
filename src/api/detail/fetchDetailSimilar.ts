@@ -1,5 +1,3 @@
-"use client";
-
 export interface IDetailSimilar {
   id: number;
   title: string;

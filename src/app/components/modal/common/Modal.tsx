@@ -18,13 +18,13 @@ export const Modal = ({ open, onOpenChange, children }: IModalProps) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 cursor-pointer"
       onClick={() => onOpenChange(false)}
       aria-modal="true"
       role="dialog"
     >
       <div
-        className="relative bg-white dark:bg-gray-900 rounded-xl shadow-xl max-w-full"
+        className="relative bg-white dark:bg-gray-900 rounded-xl shadow-xl max-w-full  w-full cursor-default"
         onClick={(e) => e.stopPropagation()}
       >
         {children}
@@ -41,7 +41,7 @@ Modal.Content = function ModalContent({
   children: ReactNode;
   className?: string;
 }) {
-  return <div className={`p-6 ${className}`}>{children}</div>;
+  return <div className={`${className}`}>{children}</div>;
 };
 
 // ModalHeader

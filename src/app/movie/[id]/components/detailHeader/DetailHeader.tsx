@@ -1,14 +1,19 @@
+"use client";
 import { IDetailHeaderProps } from "./detailHeader.type";
 import { detailHeaderVariants } from "./detailHeaderVariants";
 import Image from "next/image";
 import { Badge } from "@/app/components/badge";
 import { Button } from "@/app/components/button";
 import { Star, Calendar, Clock, Heart, Share2, Play } from "lucide-react";
+import { useAutoPlayStore } from "@/store/useAutoPlayStore";
+import { TrailerModal } from "@/app/components/modal/trailer/TrailerModal";
+import { useState } from "react";
 
 export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
   const { section } = detailHeaderVariants();
   // const [watchlistModalOpen, setWatchlistModalOpen] = useState(false);
   // const [shareModalOpen, setShareModalOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <section className={section()}>
@@ -80,7 +85,9 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
               <Button
                 type="button"
                 className="bg-primary font-regular-14 w-32 md:w-40"
-                onClick={() => console.log("clicked")}
+                onClick={() => {
+                  setOpenModal(true);
+                }}
                 variant="play"
                 size="md"
               >
@@ -92,7 +99,7 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
                 variant="outline"
                 // onClick={() => setWatchlistModalOpen(true)}
                 size="md"
-                className="font-regular-14"
+                className="font-regular-14 !cursor-default"
               >
                 <Heart className="w-4 h-4 mr-2 md:mr-4 text-gray-500" />
                 찜하기
@@ -102,12 +109,25 @@ export const DetailHeader = ({ movie }: IDetailHeaderProps) => {
                 variant="outline"
                 // onClick={() => setShareModalOpen(true)}
                 size="md"
-                className="font-regular-14"
+                className="font-regular-14 !cursor-default"
               >
                 <Share2 className="w-4 h-4 mr-2 md:mr-4 text-gray-500" />
                 공유하기
               </Button>
             </div>
+            <TrailerModal
+              isOpen={openModal}
+              onClose={() => {
+                setOpenModal(false);
+              }}
+              movieTitle={movie.title}
+              trailerUrl={movie.trailerUrl}
+              trailerThumbnailUrl={movie.image}
+              genres={movie.genre}
+              year={movie.year.toString()}
+              runtime={movie.duration}
+              certification={movie.certification}
+            />
           </div>
         </div>
       </div>

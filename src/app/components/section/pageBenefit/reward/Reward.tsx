@@ -10,7 +10,7 @@ export const Reward = () => {
   return (
     <section className={section()}>
       <h3 className="font-bold-20 mb-4 dark:text-white">리워드 프로그램</h3>
-      <Card className="p-6 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+      <Card className="p-6 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 cursor-default">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h4 className="font-sb-18 text-gray-900 dark:text-white mb-1">

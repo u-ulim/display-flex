@@ -16,12 +16,12 @@ const { section } = pointVariants();
 export const Point = () => {
   return (
     <section className={section()}>
-      <h3 className="font-bold-20 mb-4 dark:text-white">리워드 프로그램</h3>
+      <h3 className="font-bold-20 mb-4 dark:text-white">포인트 사용하기</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         {pointData.map((item, i) => (
           <Card
             key={i}
-            className="p-4 hover:shadow-lg transition-shadow cursor-pointer bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            className="p-4 hover:shadow-lg transition-shadow cursor-default bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
           >
             <div className="flex items-center justify-between">
               <div>
