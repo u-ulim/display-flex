@@ -1,5 +1,3 @@
-"use client";
-
 export interface ReviewData {
   id: number;
   movieId: number;

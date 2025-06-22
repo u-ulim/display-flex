@@ -50,7 +50,7 @@ export const Event = () => {
           return (
             <Card
               key={event.key}
-              className="overflow-hidden bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 p-4"
+              className="overflow-hidden bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 p-4 cursor-default"
             >
               <div className="flex items-center">
                 <div

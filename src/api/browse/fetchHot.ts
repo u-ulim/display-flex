@@ -1,4 +1,3 @@
-"use client";
 export interface IHot {
   id: number;
   title: string;

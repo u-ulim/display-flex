@@ -19,7 +19,7 @@ export const Collection = () => {
         {collections.map((collection, i) => (
           <Card
             key={i}
-            className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            className="overflow-hidden hover:shadow-lg transition-shadow cursor-default bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
             onClick={() => {}}
           >
             <CardContent variant="default">

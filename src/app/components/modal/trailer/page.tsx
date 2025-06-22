@@ -9,7 +9,8 @@ export default function TrailerModalPage() {
         isOpen={true}
         onClose={() => {}}
         movieTitle="오펜하이머"
-        trailerUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        trailerUrl="https://www.youtube.com/watch?v=uYPbbksJxIg"
+        trailerThumbnailUrl="https://image.tmdb.org/t/p/w1920/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg"
       />
     </div>
   );
