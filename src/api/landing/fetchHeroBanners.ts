@@ -4,6 +4,39 @@ import {
   IGenre,
 } from "../common/movieUtils";
 
+// TMDB API 응답 타입 정의
+interface TMDBMovie {
+  id: number;
+  title: string;
+  overview: string;
+  vote_average: number;
+  release_date: string;
+  genre_ids: number[];
+  backdrop_path: string;
+  poster_path: string;
+  adult: boolean;
+  original_language: string;
+  original_title: string;
+  popularity: number;
+  video: boolean;
+}
+
+interface TMDBMovieDetail extends TMDBMovie {
+  runtime: number;
+  genres: IGenre[];
+  budget: number;
+  revenue: number;
+  status: string;
+  tagline: string;
+}
+
+interface TMDBPopularResponse {
+  page: number;
+  results: TMDBMovie[];
+  total_pages: number;
+  total_results: number;
+}
+
 export interface IHeroBanner {
   id: number;
   title: string;
@@ -30,16 +63,16 @@ export async function fetchHeroBanners() {
     `https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_API_KEY}&language=ko-KR&page=1`
   );
 
-  const data = await res.json();
+  const data: TMDBPopularResponse = await res.json();
 
   // 각 영화에 대해 상세 정보, 트레일러, 시청 등급 정보를 병렬로 가져오기
   const moviesWithTrailers = await Promise.all(
-    data.results.slice(0, 5).map(async (movie: any) => {
+    data.results.slice(0, 5).map(async (movie: TMDBMovie) => {
       const [trailerUrl, movieDetail, certification] = await Promise.all([
         fetchTrailerUrl(movie.id, TMDB_API_KEY!),
         fetch(
           `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${TMDB_API_KEY}&language=ko-KR`
-        ).then((res) => res.json()),
+        ).then((res) => res.json() as Promise<TMDBMovieDetail>),
         fetchCertification(movie.id, TMDB_API_KEY!),
       ]);
 

@@ -11,6 +11,10 @@ export default function TrailerModalPage() {
         movieTitle="오펜하이머"
         trailerUrl="https://www.youtube.com/watch?v=uYPbbksJxIg"
         trailerThumbnailUrl="https://image.tmdb.org/t/p/w1920/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg"
+        genres={[]}
+        year={"2025"}
+        runtime={120}
+        certification="15"
       />
     </div>
   );
