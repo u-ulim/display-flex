@@ -22,7 +22,7 @@ export const Membership = () => {
             <div key={plan.key}>
               <button
                 key={plan.key}
-                className={`w-full p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg text-left group relative overflow-hidden ${
+                className={`w-full p-4 sm:p-6  rounded-2xl border-2 transition-all duration-300 hover:shadow-lg text-left group relative overflow-hidden ${
                   index === 0 ? "" : "cursor-pointer"
                 } ${plan.bg} ${plan.border}`}
                 onClick={() => setSelectedPlanKey(plan.key)}
@@ -37,9 +37,11 @@ export const Membership = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div
-                      className={`w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg ${plan.iconBg}`}
+                      className={`w-8 h-8 sm:w-16 sm:h-16 shrink-0 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg ${plan.iconBg}`}
                     >
-                      <Icon className={`w-8 h-8 ${plan.iconColor}`} />
+                      <Icon
+                        className={`w-4 h-4 sm:w-8 sm:h-8  ${plan.iconColor}`}
+                      />
                     </div>
                     <div>
                       <h4 className="font-bold-20 text-gray-900 dark:text-white mb-1.5">
@@ -52,7 +54,7 @@ export const Membership = () => {
                         {plan.features.map((feature, idx) => (
                           <span
                             key={feature}
-                            className={`font-medium-12   bg-${
+                            className={`font-medium-12 shrink-0 bg-${
                               Array.isArray(plan.featureColor)
                                 ? plan.featureColor[idx]
                                 : plan.featureColor
@@ -113,7 +115,7 @@ export const Membership = () => {
         })}
       </div>
       <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
-        <div className="flex items-center justify-center space-x-6 font-regular-14 text-blue-700 dark:text-blue-300">
+        <div className="flex items-center justify-center space-x-3 sm:space-x-6 font-regular-14 text-blue-700 dark:text-blue-300">
           <div className="flex items-center">
             <svg
               className="w-4 h-4 mr-2"
