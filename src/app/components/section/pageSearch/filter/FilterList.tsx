@@ -35,6 +35,7 @@ export const FilterList = () => {
                 { value: "thriller", label: "스릴러" },
                 { value: "romance", label: "로맨스" },
                 { value: "sf", label: "SF" },
+                { value: "horror", label: "공포" },
               ]}
               variant="filter"
               size="sm"
